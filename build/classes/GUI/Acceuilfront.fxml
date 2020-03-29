@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="662.0" prefWidth="793.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AcceuilfrontController">
+   <top>
+      <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #2471A3;" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="368.0" spacing="7.0" style="-fx-background-color: #52B3D9;" HBox.hgrow="NEVER">
+               <children>
+                  <Pane prefHeight="100.0" prefWidth="4.0" />
+                  <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="224.0" style="-fx-background-color: #52B3D9;">
+                     <children>
+                        <Text fill="#eb0202" lineSpacing="20.0" strokeType="OUTSIDE" strokeWidth="20.0" text="Genius" textAlignment="RIGHT" wrappingWidth="80.0">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Text>
+                        <Separator prefWidth="200.0" />
+                        <Label prefHeight="21.0" prefWidth="236.0" text="&quot;tous les necessités de votre enfant" textFill="WHITE" wrapText="true" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <Pane prefHeight="100.0" prefWidth="238.0" style="-fx-background-color: #52B3D9;" HBox.hgrow="ALWAYS" />
+            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="205.0" spacing="7.0" style="-fx-background-color: #52B3D9;" HBox.hgrow="ALWAYS">
+               <children>
+                  <VBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="149.0" style="-fx-background-color: #52B3D9;">
+                     <children>
+                        <Label fx:id="UserName" text="User Name" textFill="WHITE">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Separator prefHeight="2.0" prefWidth="116.0" />
+                        <Label mnemonicParsing="false" textFill="WHITE" underline="true" />
+                        <Label mnemonicParsing="false" text="Deconnexion" textFill="WHITE" underline="true" />
+                     </children>
+                  </VBox>
+                  <ImageView fx:id="UserImage" fitHeight="61.0" fitWidth="61.0" pickOnBounds="true" preserveRatio="true" />
+                  <Pane prefHeight="100.0" prefWidth="9.0" />
+               </children>
+            </HBox>
+         </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </HBox>
+   </top>
+   <left>
+      <VBox alignment="CENTER" prefHeight="502.0" prefWidth="225.0" spacing="25.0" style="-fx-background-color: #52B3D9;" BorderPane.alignment="CENTER">
+         <children>
+            <Pane prefHeight="6.0" prefWidth="225.0" />
+            <VBox prefHeight="460.0" prefWidth="225.0" spacing="6.0">
+               <children>
+                  <Button fx:id="BtnAcceuil" mnemonicParsing="false" prefHeight="80.0" prefWidth="250.0" style="-fx-background-color: #FFFF;" text="Acceuil" textFill="#2471a3">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="cour" mnemonicParsing="false" onAction="#cour" prefHeight="80.0" prefWidth="250.0" style="-fx-background-color: #FFFF;" text="Cour" textFill="#2471a3">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="serie" mnemonicParsing="false" onAction="#serie" prefHeight="80.0" prefWidth="250.0" style="-fx-background-color: #FFFF;" text="Serie" textFill="#2471a3">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="club" mnemonicParsing="false" onAction="#club" prefHeight="80.0" prefWidth="250.0" style="-fx-background-color: #FFFF;" text="Evenement" textFill="#2471a3">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" prefHeight="80.0" prefWidth="250.0" style="-fx-background-color: #FFFF;" text="club" textFill="#2471a3">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" prefHeight="80.0" prefWidth="250.0" style="-fx-background-color: #FFFF;" text="Contine" textFill="#2471a3">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </left>
+   <center>
+      <ScrollPane fx:id="SrollPaneMain" fitToHeight="true" fitToWidth="true" pannable="true" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <content>
+          <AnchorPane fx:id="image" minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <ImageView fitHeight="402.0" fitWidth="504.0" layoutX="9.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/bg_1.jpg" />
+                     </image>
+                  </ImageView>
+               </children></AnchorPane>
+        </content>
+      </ScrollPane>
+   </center>
+</BorderPane>
