@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="523.0" prefWidth="836.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.NoteController">
+    <stylesheets>
+        <URL value="@note.css" />
+    </stylesheets>
+   <children>
+      <TextField fx:id="tfnote1" layoutX="133.0" layoutY="213.0" />
+      <TextField fx:id="tfnote2" layoutX="133.0" layoutY="279.0" />
+      <TextField fx:id="tfmoyenne" layoutX="133.0" layoutY="345.0" />
+      <ChoiceBox fx:id="tfmatiere" layoutX="133.0" layoutY="24.0" prefWidth="150.0" />
+      <Button fx:id="ajouter" layoutX="180.0" layoutY="417.0" mnemonicParsing="false" onAction="#ajouter" text="Ajouter" />
+      <Text layoutX="38.0" layoutY="230.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Note 1 :" />
+      <Text layoutX="38.0" layoutY="296.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Note 2 :" />
+      <Text layoutX="31.0" layoutY="362.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Moyenne :" />
+      <Text layoutX="35.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Matiere :" />
+      <TableView fx:id="table1" layoutX="323.0" layoutY="21.0" prefHeight="373.0" prefWidth="309.0">
+        <columns>
+          <TableColumn fx:id="colmatiere" prefWidth="70.0" text="Matiere" />
+            <TableColumn fx:id="colnote1" prefWidth="69.0" text="Note 1 " />
+            <TableColumn fx:id="colnote2" prefWidth="83.0" text="Note 2" />
+            <TableColumn fx:id="colmoyenne" prefWidth="85.0" text="Moyenne" />
+        </columns>
+      </TableView>
+      <Button fx:id="supprimer" layoutX="442.0" layoutY="423.0" mnemonicParsing="false" onAction="#supprimer" text="Supprimer" />
+   </children>
+</AnchorPane>
