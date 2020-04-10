@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dashbordback.AddcourController">
+   <children>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <Pane prefHeight="402.0" prefWidth="174.0" style="-fx-background-color: #2F323A;">
+               <children>
+                  <Text fill="WHITE" layoutX="42.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ajout cour" textAlignment="RIGHT" wrappingWidth="90.0595703125">
+                     <font>
+                        <Font name="System Italic" size="18.0" />
+                     </font>
+                  </Text>
+                  <Button fx:id="ajouter" layoutX="47.0" layoutY="267.0" mnemonicParsing="false" onAction="#ajouter" prefHeight="24.0" prefWidth="74.0" style="-fx-background-color: #2ABFCC;" text="ajouter" />
+               </children>
+            </Pane>
+            <Pane layoutX="174.0" layoutY="1.0" prefHeight="400.0" prefWidth="427.0">
+               <children>
+                  <TextField fx:id="niveau" layoutX="18.0" layoutY="192.0" maxHeight="300.0" maxWidth="300.0" prefHeight="25.0" prefWidth="140.0" promptText="Niveau" style="-fx-background-color: transparent; -fx-border-width: 0 0 2px 0; -fx-border-color: white; -fx-text-fill: black;">
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="matiere" layoutX="248.0" layoutY="82.0" maxHeight="300.0" maxWidth="300.0" prefHeight="40.0" prefWidth="140.0" promptText="matiere" style="-fx-background-color: transparent; -fx-border-width: 0 0 2px 0; -fx-border-color: white; -fx-text-fill: black;">
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="nomchapitre" layoutX="14.0" layoutY="82.0" maxHeight="300.0" maxWidth="300.0" prefHeight="40.0" prefWidth="140.0" promptText="Nom de cour" style="-fx-background-color: transparent; -fx-border-width: 0 0 2px 0; -fx-border-color: white; -fx-text-fill: black;">
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="Email" layoutX="233.0" layoutY="182.0" maxHeight="300.0" maxWidth="300.0" prefHeight="49.0" prefWidth="155.0" promptText="Adresse e-mail" style="-fx-background-color: transparent; -fx-border-width: 0 0 2px 0; -fx-border-color: White; -fx-text-fill: black;">
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="lien" layoutX="18.0" layoutY="298.0" maxHeight="300.0" maxWidth="300.0" prefHeight="38.0" prefWidth="140.0" promptText="lien de telechargement" style="-fx-background-color: transparent; -fx-border-width: 0 0 2px 0; -fx-border-color: white; -fx-text-fill: black;">
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </TextField>
+                  <Button fx:id="retour" layoutX="265.0" layoutY="20.0" mnemonicParsing="false" onAction="#retour" prefHeight="49.0" prefWidth="140.0" style="-fx-background-color: transparent;" />
+                  <ImageView fitHeight="24.0" fitWidth="15.0" layoutX="381.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/1200px-Saint_Andrew's_cross.svg.png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="upload" alignment="CENTER_RIGHT" cacheShape="false" centerShape="false" focusTraversable="false" graphicTextGap="35.0" layoutX="167.0" layoutY="299.0" mnemonicParsing="false" onAction="#upload" opacity="0.53" prefHeight="36.0" prefWidth="133.0" style="-fx-border-color: black; -fx-border-radius: 15; -fx-background-color: white;" text="Choisir un fichier">
+                     <padding>
+                        <Insets right="20.0" />
+                     </padding>
+                  </Button>
+               </children>
+            </Pane>
+            <TextArea fx:id="idcour" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" visible="false" />
+         </children></AnchorPane>
+   </children>
+</StackPane>

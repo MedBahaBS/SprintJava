@@ -6,7 +6,6 @@
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -17,6 +16,7 @@
 <?import javafx.scene.paint.RadialGradient?>
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane fx:id="rootpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="671.0" prefWidth="985.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Back.ListeCourController">
    <children>
@@ -135,19 +135,14 @@
                      <children>
                         <VBox layoutX="14.0" layoutY="22.0" prefHeight="417.0" prefWidth="244.0" spacing="15.0">
                            <children>
-                              <HBox prefHeight="46.0" prefWidth="204.0" spacing="6.0">
-                                 <children>
-                                    <TextField fx:id="Titre" prefHeight="3.0" prefWidth="143.0" promptText="chercher" style="-fx-border-color: #2471A3;" />
-                                    <Button fx:id="ChercherTitre" mnemonicParsing="false" style="-fx-background-color: #22A7F0;" text="chercher" textFill="WHITE" />
-                                 </children>
-                              </HBox>
+                              <HBox prefHeight="46.0" prefWidth="204.0" spacing="6.0" />
                               <Label text="Filtrer Par Type" translateY="4.0" />
-                              <CheckBox id="Randonnée" fx:id="Cultiver" mnemonicParsing="false" text="Niveau" translateY="4.0" />
-                              <CheckBox id="Voyage" fx:id="Distraire" mnemonicParsing="false" text="Matiere" translateY="4.0" />
-                              <CheckBox id="Camping" fx:id="Cinema" mnemonicParsing="false" text="Nom chapitre" translateY="4.0" />
+                              <CheckBox id="Randonnée" fx:id="idniveau" mnemonicParsing="false" text="Niveau" translateY="4.0" />
+                              <CheckBox id="Voyage" fx:id="idmat" mnemonicParsing="false" text="Matiere" translateY="4.0" />
+                              <CheckBox id="Camping" fx:id="idchap" mnemonicParsing="false" text="Nom chapitre" translateY="4.0" />
                               <Pane prefHeight="30.0" prefWidth="184.0" translateY="-30.0">
                                  <children>
-                                    <Button layoutX="150.0" layoutY="4.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="61.0" style="-fx-background-color: #22A7F0;" text="filtrer" textFill="WHITE" />
+                                    <Button fx:id="filter" layoutX="150.0" layoutY="4.0" mnemonicParsing="false" onAction="#filter" prefHeight="25.0" prefWidth="61.0" style="-fx-background-color: #22A7F0;" text="filtrer" textFill="WHITE" />
                                  </children>
                               </Pane>
                               <HBox alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="184.0" translateY="-35.0">
@@ -158,6 +153,7 @@
                               <HBox alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="184.0" translateY="-25.0" />
                            </children>
                         </VBox>
+                        <Button fx:id="ajouter" layoutX="55.0" layoutY="439.0" mnemonicParsing="false" onAction="#ajouter" prefHeight="32.0" prefWidth="118.0" style="-fx-background-color: #22A7F0;" text="Ajouter" textAlignment="CENTER" textFill="WHITE" />
                      </children>
                   </AnchorPane>
                   <Button fx:id="consulter" layoutX="100.0" layoutY="487.0" mnemonicParsing="false" onAction="#consulter" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: #3af24b;" text="Consulter " textFill="WHITE" />
@@ -176,11 +172,11 @@
                         <Image url="@../images/7db99d46d3568fe5b985e529b133cddb-eye-magnifying-glass-icon-by-vexels.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="25.0" fitWidth="28.0" layoutX="339.0" layoutY="492.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/images.png" />
-                     </image>
-                  </ImageView>
+                  <Text layoutX="306.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Liste des cours ">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Text>
                </children>
             </AnchorPane>
          </children>

@@ -7,6 +7,7 @@ package Back;
 
 import Entity.Cours;
 import Service.ServiceCours;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -24,11 +25,14 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.FileChooser;
+import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
 
 /**
@@ -62,6 +66,7 @@ public class CouraddController implements Initializable {
     private Button pdf;
     @FXML
     private Button ajouter;
+    private ListView<?> aa;
 
     /**
      * Initializes the controller class.
@@ -72,11 +77,23 @@ public class CouraddController implements Initializable {
     }    
 
     @FXML
-    private void cour(ActionEvent event) {
+    private void cour(ActionEvent event) throws IOException {
+        javafx.scene.Parent tableview;
+        tableview = FXMLLoader.load(getClass().getResource("ListeCour.fxml"));
+        Scene sceneview = new Scene(tableview);
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        window.setScene(sceneview);
+        window.show();
     }
 
     @FXML
-    private void serie(ActionEvent event) {
+    private void serie(ActionEvent event) throws IOException {
+        javafx.scene.Parent tableview;
+        tableview = FXMLLoader.load(getClass().getResource("Serieliste.fxml"));
+        Scene sceneview = new Scene(tableview);
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        window.setScene(sceneview);
+        window.show();
     }
 
     @FXML
@@ -156,6 +173,18 @@ public class CouraddController implements Initializable {
         
     @FXML
     private void pdf(ActionEvent event) {
+         FileChooser fc = new FileChooser();
+         fc.setInitialDirectory(new File("C:\\Users\\acer\\Documents\\NetBeansProjects\\Ecolepi\\src\\pdf"));
+         fc.getExtensionFilters().addAll(new ExtensionFilter("PDF Files"));
+         
+        File selectfile = fc.showOpenDialog(null);
+        if (selectfile !=null)
+        {
+            aa.getItems();
+        } else {
+            System.out.println ("file not valid");
+            
+        }
     }
 
 

@@ -8,6 +8,7 @@ package Entity;
 import java.sql.Date;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import javafx.scene.image.ImageView;
 
 
 /**
@@ -19,12 +20,14 @@ public class Cours {
     int idcour;
     String niveau,matiere,nomchapitre,email,lien;
     String date ;
+    String cour;
+   
 
     public Cours() {
     }
   
     
-  
+   
     
 
     public Cours(int idcour, String niveau, String matiere, String nomchapitre, String email, String lien, String date) {
@@ -44,6 +47,12 @@ public class Cours {
         this.email = email;
         this.lien = lien;
     }
+
+    public Cours(String Niveau, String Matiere, String Nomchapitre, String email, String Lien, String ImgToDb) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+  
 
     public int getIdcour() {
         return idcour;
@@ -99,6 +108,14 @@ public class Cours {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public String getCour() {
+        return cour;
+    }
+
+    public void setCour(String cour) {
+        this.cour = cour;
     }
 
    

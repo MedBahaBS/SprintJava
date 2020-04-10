@@ -73,11 +73,23 @@ public class CourupdateController implements Initializable {
     }    
 
     @FXML
-    private void cour(ActionEvent event) {
+    private void cour(ActionEvent event) throws IOException {
+        javafx.scene.Parent tableview;
+        tableview = FXMLLoader.load(getClass().getResource("ListeCour.fxml"));
+        Scene sceneview = new Scene(tableview);
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        window.setScene(sceneview);
+        window.show();
     }
 
     @FXML
-    private void serie(ActionEvent event) {
+    private void serie(ActionEvent event) throws IOException {
+        javafx.scene.Parent tableview;
+        tableview = FXMLLoader.load(getClass().getResource("Serieliste.fxml"));
+        Scene sceneview = new Scene(tableview);
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        window.setScene(sceneview);
+        window.show();
     }
 
     @FXML
@@ -124,7 +136,14 @@ public class CourupdateController implements Initializable {
     }
 
     @FXML
-    private void annuler(ActionEvent event) {
+    private void annuler(ActionEvent event) throws IOException {
+        javafx.scene.Parent tableview;
+        tableview = FXMLLoader.load(getClass().getResource("ListeCour.fxml"));
+        Scene sceneview = new Scene(tableview);
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        window.setScene(sceneview);
+        window.show();
+
     }
 
     void setIdcour(String string) {

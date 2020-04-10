@@ -11,8 +11,9 @@ package Entity;
  */
 public class Serie {
      int idserie;
-    String lien,nomserie,description;
+    String lien,nomserie,description,cours;
     int cour;
+    
 
     public Serie(int idserie, String lien, String nomserie, String description, int cour) {
         this.idserie = idserie;
@@ -20,6 +21,14 @@ public class Serie {
         this.nomserie = nomserie;
         this.description = description;
         this.cour = cour;
+    }
+    
+     public Serie(int idserie, String lien, String nomserie, String description) {
+        this.idserie = idserie;
+        this.lien = lien;
+        this.nomserie = nomserie;
+        this.description = description;
+      
     }
 
     public Serie(String lien, String nomserie, String description, int cour) {
@@ -29,6 +38,11 @@ public class Serie {
         this.cour = cour;
     }
 
+    public Serie(String Lien, String Nomserie, String Description)  {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    
     public int getIdserie() {
         return idserie;
     }
@@ -67,6 +81,14 @@ public class Serie {
 
     public void setCour(int cour) {
         this.cour = cour;
+    }
+
+    public String getCours() {
+        return cours;
+    }
+
+    public void setCours(String cours) {
+        this.cours = cours;
     }
     
 

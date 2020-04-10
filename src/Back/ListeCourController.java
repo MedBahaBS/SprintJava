@@ -14,6 +14,7 @@ import java.net.URL;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import static java.util.Collections.list;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -38,6 +39,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 /**
@@ -69,15 +71,6 @@ public class ListeCourController implements Initializable {
     private TableColumn<Cours, String> lien;
     @FXML
     private TableColumn<Cours, String> date;
-    @FXML
-    private TextField Titre;
-    @FXML
-    private Button ChercherTitre;
-    @FXML
-    private CheckBox Cultiver;
-    @FXML
-    private CheckBox Distraire;
-    @FXML
     private CheckBox Cinema;
     @FXML
     private Button consulter;
@@ -88,6 +81,16 @@ public class ListeCourController implements Initializable {
 ServiceCours svr = new ServiceCours();
     @FXML
     private TableColumn<Cours, Integer> idcour;
+    @FXML
+    private Button ajouter;
+    @FXML
+    private CheckBox idniveau;
+    @FXML
+    private CheckBox idmat;
+    @FXML
+    private CheckBox idchap;
+    @FXML
+    private Button filter;
 
     /**
      * Initializes the controller class.
@@ -102,7 +105,7 @@ ServiceCours svr = new ServiceCours();
             for(Cours P: svr.readAll())
                 list.add(P);
         } catch (SQLException ex) {
-            Logger.getLogger(Icour.ListeCourController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Back.ListeCourController.class.getName()).log(Level.SEVERE, null, ex);
         }
          
          niveau.setCellValueFactory(new PropertyValueFactory<>("niveau"));
@@ -114,6 +117,7 @@ ServiceCours svr = new ServiceCours();
         //load dummy data
        
         tabcour.setItems(list);
+        
     }    
 
     @FXML
@@ -188,10 +192,46 @@ ServiceCours svr = new ServiceCours();
        
      for(Cours c:SelectedRows){
        allpeople.remove(c);
-     svr.delete(c.getIdcour());
+     svr.supprimer2parID(c.getIdcour());
      }
-    }}
+    }
+    }
+   
+
+
+    @FXML
+    private void ajouter(ActionEvent event) throws IOException {
+        javafx.scene.Parent tableview;
+        tableview = FXMLLoader.load(getClass().getResource("Couradd.fxml"));
+        Scene sceneview = new Scene(tableview);
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        window.setScene(sceneview);
+        window.show();
+    }
+
+    @FXML
+    private void filter(ActionEvent event) {
+        int idcour = 0;
+        if (idniveau.isSelected()) {
+            idcour = 1;
+        }
+        if (idmat.isSelected()) {
+            idcour = 2;
+        }
+        if (idchap.isSelected()) {
+            idcour =3;
+        }
+        try {
+            tabcour.setItems(svr.displayFiltreCour(idcour));
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+    }
+    }
+
+    
+  
 
     
 
-}
+

@@ -56,11 +56,11 @@ public class ServiceSerie {
         
     }
     
-    public void modifier(int idserie, String lien, String nomserie, String description, int cour)
+    public void modifier(int idserie, String lien, String nomserie, String description)
       { 
           try 
        {
-        String query ="UPDATE serie SET lien='"+lien+"',nomserie='"+nomserie+"',description='"+description+"',cour='"+cour+"' WHERE idserie='"+idserie+"'";
+        String query ="UPDATE serie SET lien='"+lien+"',nomserie='"+nomserie+"',description='"+description+"'WHERE idserie='"+idserie+"'";
         Statement ste=con.createStatement();
         ste.executeUpdate(query) ;
        System.out.println("Serie bien modifié");
@@ -75,7 +75,8 @@ public class ServiceSerie {
         public List<Serie> readAll() throws SQLException {
     List<Serie> arr=new ArrayList<>();
     Statement ste=con.createStatement();
-    ResultSet rs=ste.executeQuery("select * from serie");
+    ResultSet rs=ste.executeQuery("select * from serie ");
+   
      while (rs.next()) {                
                int idserie=rs.getInt(1);
                String lien=rs.getString(2);

@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="layer1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="858.0" prefWidth="1050.0" style="-fx-background-color: #02030A;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dashbordback.ListeCourController">
+    <children>
+        <StackPane fx:id="afficherPlatStackPane" layoutX="258.0" prefHeight="858.0" prefWidth="792.0" style="-fx-background-color: #02030A;">
+            <children>
+                <Pane fx:id="modifier" prefHeight="200.0" prefWidth="200.0" />
+                <Pane fx:id="ajouter" prefHeight="200.0" prefWidth="200.0" />
+                <Pane fx:id="pnlMenus" prefHeight="200.0" prefWidth="200.0" />
+                <Pane fx:id="pnlOverview" onInputMethodTextChanged="#cour" prefHeight="759.0" prefWidth="793.0" style="-fx-background-color: #fff;">
+                    <children>
+                        <Button alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="470.0" layoutY="22.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="275.0" style="-fx-background-color: #E5E5E9;" stylesheets="@style.css" text="Acceuil &gt; Liste des cours">
+                            <padding>
+                                <Insets left="50.0" />
+                            </padding>
+                     <font>
+                        <Font size="27.0" />
+                     </font>
+                        </Button>
+                        <HBox alignment="CENTER_LEFT" layoutX="30.0" layoutY="81.0" prefHeight="92.0" prefWidth="710.0" spacing="50.0" style="-fx-background-color: #FFFFFF;" />
+                        <ScrollPane layoutX="44.0" layoutY="338.0" prefHeight="215.0" prefWidth="746.0" stylesheets="@style.css">
+                            <content>
+                                <TableView fx:id="tabcour" editable="true" prefHeight="219.0" prefWidth="728.0" style="-fx-background-color: #F3F3F3;">
+                                   
+                                                                                          <columns>
+                                        <TableColumn fx:id="niveau" prefWidth="94.0" text="Niveau" />
+                                        <TableColumn fx:id="matiere" maxWidth="185.0" prefWidth="112.0" text="Matiere" />
+                                        <TableColumn fx:id="nomchap" maxWidth="238.0" prefWidth="176.0" text="Nom chapitre" />
+                                    
+                                                                                                    <TableColumn fx:id="date" maxWidth="220.0" prefWidth="112.0" text="Date" />
+                                        <TableColumn fx:id="email" maxWidth="229.0" prefWidth="104.0" text="E-mail" />
+                              <TableColumn fx:id="lien" maxWidth="229.0" prefWidth="129.0" text="lien" />
+                              <TableColumn fx:id="idcour" minWidth="0.0" prefWidth="0.0" text="id" />
+                                    </columns>
+                           <contextMenu>
+                              <ContextMenu>
+                                <items>
+                                  <MenuItem mnemonicParsing="false" text="Unspecified Action" />
+                                </items>
+                                  <items>
+                                  <MenuItem fx:id="actualiser" mnemonicParsing="false" onAction="#actualiser" text="Actualiser" />
+                                </items>
+                              </ContextMenu>
+                           </contextMenu>
+                                   
+                                                                                          
+                                </TableView>
+                            </content>
+                            
+                                                            </ScrollPane>
+                        <Button fx:id="addcour" layoutX="44.0" layoutY="220.0" mnemonicParsing="false" onAction="#add" prefHeight="38.0" prefWidth="100.0" style="-fx-background-color: #2ABFCC;" text="+ Ajouter cour" textFill="WHITE" />
+                  <TextField fx:id="recherche" layoutX="499.0" layoutY="226.0" onAction="#recherche" />
+                  <ImageView fitHeight="26.0" fitWidth="28.0" layoutX="616.0" layoutY="226.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/91663944_620955925299053_8136661039413460992_n.png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="update" layoutX="101.0" layoutY="616.0" mnemonicParsing="false" onAction="#update" prefHeight="38.0" prefWidth="117.0" style="-fx-background-color: #2ABFCC;" text="Modifier" textFill="WHITE" />
+                  <Button fx:id="supp" layoutX="521.0" layoutY="616.0" mnemonicParsing="false" onAction="#supprimer" prefHeight="38.0" prefWidth="130.0" style="-fx-background-color: #2ABFCC;" text="Supprimer" textFill="WHITE" />
+                  <ImageView fitHeight="26.0" fitWidth="26.0" layoutX="528.0" layoutY="622.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/lll.png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="consulter" layoutX="304.0" layoutY="616.0" mnemonicParsing="false" onAction="#consulter" prefHeight="38.0" prefWidth="117.0" style="-fx-background-color: #2ABFCC;" text="Consulter" textFill="WHITE" />
+                        
+                                                        </children>
+                </Pane>
+                
+            </children>
+            
+        </StackPane>
+      <VBox alignment="TOP_CENTER" prefHeight="858.0" prefWidth="256.0" style="-fx-background-color: #2F323A;">
+         <children>
+            <Button fx:id="btnOverview" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="259.0" style="-fx-background-color: #2F323A;" stylesheets="@../Back/style.css" text="Acceuil" textFill="#e7e5e5">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/92212732_230500501482813_3206278796831358976_n.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+            </Button>
+            <Button fx:id="btncour" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#Gestioncour" prefHeight="42.0" prefWidth="259.0" style="-fx-background-color: #2F323A;" stylesheets="@../Back/style.css" text="Gestion Cours">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/92160547_3024958840900183_1259807426534703104_n.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+            </Button>
+            <Button alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="259.0" style="-fx-background-color: #2F323A;" stylesheets="@../Back/style.css" text="Gestion Evenements">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/92160547_3024958840900183_1259807426534703104_n.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+            </Button>
+            <Button alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="259.0" style="-fx-background-color: #2F323A;" stylesheets="@../Back/style.css" text="Gestion Notes">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/91663944_620955925299053_8136661039413460992_n.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+            </Button>
+            <Button fx:id="btnSettings" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="259.0" style="-fx-background-color: #2F323A;" stylesheets="@../Back/style.css" text="Gestion Clubs">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/92160547_3024958840900183_1259807426534703104_n.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+            </Button>
+            <Button fx:id="btnSignout" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="259.0" style="-fx-background-color: #2F323A;" stylesheets="@../Back/style.css" text="Gestion Cantine">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/91785627_2794593793988235_5018817431682940928_n.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+            </Button>
+            <Button fx:id="btnPackages" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="259.0" style="-fx-background-color: #2F323A;" stylesheets="@../Back/style.css" text="Gestion Reclamations">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/91982313_859387071206599_1415747677483696128_n.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+            </Button>
+         </children>
+         <padding>
+            <Insets top="150.0" />
+         </padding>
+      </VBox>
+    </children>
+    <effect>
+        <DropShadow color="#1b1eeb" />
+    </effect>
+</AnchorPane>
