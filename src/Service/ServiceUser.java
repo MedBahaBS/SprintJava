@@ -379,6 +379,43 @@ String rq = "select * from fos_user where enabled ='"+ 0 +"' and (username like'
         return ch;
     }
        
+     public void creerToken(String token, String mail)
+     {
+       try {
+           
+           
+        String requete = "INSERT INTO token (token,email) VALUES "
+                + "('" + token +  "','"+mail+"')";
+        Statement st =  Conct.getInstance().getCnx().createStatement();
+        st.executeUpdate(requete);
+        }
+        catch (SQLException ex){
+            System.out.println(ex.getMessage());
+        }
      
+     }
+       public boolean verifToken (String token,String mail) throws SQLException {
+          String requete = "SELECT * FROM token WHERE token = '" + token +"' and email ='"+mail+"'";
+            Statement s =  Conct.getInstance().getCnx().createStatement();
+            ResultSet rs = s.executeQuery(requete);
+            if (rs.first()){
+            return true ; }
+            else 
+                return false ;
+        
+    }
      
+    public void supprimerToken(String t ){
+        try{
+        String requete = "DELETE FROM token WHERE email=?";
+        PreparedStatement pst =  Conct.getInstance().getCnx().prepareStatement(requete);
+        pst.setString(1, t);
+        pst.executeUpdate();
+        }
+        catch (SQLException ex){
+            System.out.println(ex.getMessage());
+        }
+        
+    
+    }
 }

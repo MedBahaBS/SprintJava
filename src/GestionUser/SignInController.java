@@ -41,10 +41,6 @@ public class SignInController implements Initializable {
     private TextField username;
     @FXML
     private PasswordField password;
-    @FXML
-    private Button signin;
-    @FXML
-    private Label oublier;
 
    public  static int ID=0;
    ServiceUser us = new ServiceUser();
@@ -56,6 +52,10 @@ public class SignInController implements Initializable {
     private Label erreur1;
     @FXML
     private Label erreur2;
+    @FXML
+    private Button signin;
+    @FXML
+    private Label oublier;
     /**
      * Initializes the controller class.
      */

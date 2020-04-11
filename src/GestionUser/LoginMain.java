@@ -29,7 +29,7 @@ public class LoginMain extends Application {
         
         try {
               Parent root = FXMLLoader
-        .load(getClass().getResource("Main.fxml"));
+        .load(getClass().getResource("ForgetPass.fxml"));
             
             Scene scene = new Scene(root);
             
