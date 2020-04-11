@@ -33,7 +33,7 @@ public class menuService {
     public List<menu> getListMenu() throws SQLException {
         List<menu> listmenu = new ArrayList<>();
         // String req = "SELECT m.id, p.nomPlat, pp.nomPlat, ppp.nomPlat, m.jourMenu m.nbrLike,m.nbrFoisLike,m.moyenneLike FROM menu m, plat p,plat pp,plat ppp WHERE (m.entree = p.id AND m.platprincipal=pp.id AND m.dessert=ppp.id)";
-        String req = "SELECT m.id, p.nomPlat, pp.nomPlat, ppp.nomPlat,m.entree,m.platprincipal,m.dessert,m.jourMenu  FROM menu m, plat p,plat pp,plat ppp WHERE (m.entree = p.id AND m.platprincipal=pp.id AND m.dessert=ppp.id)";
+        String req = "SELECT m.id, p.nomPlat, pp.nomPlat, ppp.nomPlat,m.entree,m.platprincipal,m.dessert,m.jourMenu,m.nbrFoisLike,m.nbrLike,m.moyenneLike  FROM menu m, plat p,plat pp,plat ppp WHERE (m.entree = p.id AND m.platprincipal=pp.id AND m.dessert=ppp.id)";
 
         try {
             statement = connection.createStatement();
@@ -49,6 +49,9 @@ public class menuService {
                 mm.setPlatprincipale(res.getInt(6));
                 mm.setDessert(res.getInt(7));
                 mm.setJourMenu(res.getString(8));
+                mm.setNbrFoisLike(res.getInt(9));
+                mm.setNbrLike(res.getInt(10));
+                  mm.setMoyenneLike(res.getInt(11));
                 //menu m = new menu(res.getInt(1), res.getString(5), res.getString(2), res.getString(3), res.getString(4));
                 listmenu.add(mm);
             }
@@ -111,5 +114,27 @@ public class menuService {
 
         }
     }
-   
+    
+    public boolean modifierLike(menu c) {
+        String req = "UPDATE menu SET moyenneLike= ?,nbrFoisLike= ?,nbrLike = ? WHERE id= ?";
+        try {
+            pst = connection.prepareStatement(req);
+            // System.out.println(c.getId());
+            pst.setFloat(1, c.getMoyenneLike());
+            pst.setInt(2, c.getNbrFoisLike());
+            pst.setInt(3, c.getNbrLike());
+            pst.setInt(4, c.getId());
+
+            int res = pst.executeUpdate();
+
+            if (res > 0) {
+                return true;
+            }
+        } catch (SQLException e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+        return false;
+    }
+    
 }

@@ -233,7 +233,7 @@ public class ModifierPlatController implements Initializable {
                 tray.setMessage(message);
                 tray.setNotificationType(NotificationType.SUCCESS);
                 tray.showAndDismiss(Duration.millis(3000));
-            } else {
+            } else {  
                 String ilte = "image uploadé";
                 String message = "le fichier doit être de type jpg ou png";
                 TrayNotification tray = new TrayNotification();

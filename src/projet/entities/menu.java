@@ -21,7 +21,7 @@ public class menu {
     private String jourMenu;
     private int nbrLike;
     private int nbrFoisLike;
-    private double moyenneLike;
+    private float moyenneLike;
 
     public menu() {
     }
@@ -42,7 +42,7 @@ public class menu {
        
         this.jourMenu = jourMenu;
     }
-    public menu(int entree, int platprincipale, int dessert, String jourMenu ,int nbrLike ,int nbrFoisLike , double moyenneLike ) {
+    public menu(int entree, int platprincipale, int dessert, String jourMenu ,int nbrLike ,int nbrFoisLike , float moyenneLike ) {
       
         this.entree = entree;
         this.platprincipale = platprincipale;
@@ -112,11 +112,11 @@ public int getNbrLike() {
     public void setNbrFoisLike(int nbrFoisLike) {
         this.nbrFoisLike = nbrFoisLike;
     }
-    public double getMoyenneLike() {
+    public float getMoyenneLike() {
         return moyenneLike;
     }
 
-    public void setMoyenneLike(int moyenneLike) {
+    public void setMoyenneLike(float moyenneLike) {
         this.moyenneLike = moyenneLike;
     }
     

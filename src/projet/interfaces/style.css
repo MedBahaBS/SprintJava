@@ -1,7 +1,7 @@
 .button
 {
 -fx-background-color : #FFFFFF;
-/*-fx-text-fill : #FFFFFF;*/
+-fx-text-fill : white;
 
 }
 .button:hover{
@@ -36,6 +36,7 @@
 .scroll-bar:vertical .thumb {
     -fx-background-color: #10165F;
     -fx-background-radius: 5em;
+    
 }
 
 .scroll-pane > .corner {

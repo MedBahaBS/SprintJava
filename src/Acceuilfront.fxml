@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="584.0" prefWidth="897.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Front.AcceuilfrontController">
+   <children>
+      <ImageView fitHeight="598.0" fitWidth="965.0" layoutY="-14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/bg_1.jpg" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="-1.0" prefHeight="584.0" prefWidth="897.0" />
+      <HBox alignment="CENTER" layoutX="-1.0" layoutY="-2.0" prefHeight="79.0" prefWidth="897.0" spacing="8.0" style="-fx-background-color: #81CFE0;">
+         <children>
+            <VBox alignment="CENTER_LEFT" fillWidth="false" prefHeight="90.0" prefWidth="177.0" style="-fx-background-color: #81CFE0;">
+               <children>
+                  <Label prefHeight="53.0" prefWidth="159.0" text="Genius" textAlignment="RIGHT" textFill="WHITE">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/538738-school_512x512.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Label>
+               </children>
+            </VBox>
+            <Separator orientation="VERTICAL" prefHeight="200.0" styleClass="back" />
+            <VBox alignment="CENTER" prefHeight="79.0" prefWidth="581.0" spacing="4.0" style="-fx-background-color: #52B3D9;" HBox.hgrow="ALWAYS">
+               <children>
+                  <Separator prefWidth="200.0" VBox.vgrow="ALWAYS" />
+                  <HBox prefHeight="25.0" prefWidth="420.0" spacing="6.0" VBox.vgrow="NEVER">
+                     <children>
+                        <Button fx:id="cour" onAction="#cour" prefHeight="150.0" prefWidth="140.0" style="-fx-background-color: #FAFAFA;" text="Cour" translateX="3.0">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="serie" onAction="#serie" prefHeight="150.0" prefWidth="140.0" style="-fx-background-color: #FAFAFA;" text="Serie" translateX="1.0">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Button>
+                        <Button prefHeight="150.0" prefWidth="140.0" style="-fx-background-color: #FAFAFA;" text="Evenement">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Button>
+                        <Button prefHeight="150.0" prefWidth="140.0" style="-fx-background-color: #FAFAFA;" text="Club">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Button>
+                        <Button prefHeight="150.0" prefWidth="135.0" style="-fx-background-color: #FAFAFA;" text="Contine" translateX="-1.0">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Button>
+                        <Button onAction="#GetGestionPediatre" prefHeight="25.0" prefWidth="140.0" style="-fx-background-color: #FAFAFA;" text="abs" translateX="-3.0">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <Separator orientation="VERTICAL" prefHeight="200.0" />
+            <HBox alignment="CENTER" prefHeight="67.0" prefWidth="195.0" spacing="6.0" style="-fx-background-color: #81CFE0;">
+               <children>
+                  <VBox alignment="CENTER_RIGHT" fillWidth="false" prefHeight="90.0" prefWidth="126.0" spacing="5.0" style="-fx-background-color: #81CFE0;">
+                     <children>
+                        <Label fx:id="LblUserName" prefHeight="21.0" prefWidth="127.0" text="User name" textAlignment="RIGHT" textFill="WHITE">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Separator prefHeight="0.0" prefWidth="118.0" />
+                        <Label onMouseClicked="#disconnect" text="Deconnexion" textFill="WHITE" underline="true">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

@@ -52,7 +52,9 @@ public class Projetpii extends Application {
         
        
         try {
-            URL url = new File("src/projet/interfaces/front.fxml").toURI().toURL();
+          URL url = new File("src/projet/interfaces/afficherPlat.fxml").toURI().toURL();
+          //  URL url = new File("src/projet/interfaces/front.fxml").toURI().toURL();
+
             Parent root = FXMLLoader.load(url);
       //  Parent root = FXMLLoader.load(getClass().getResource("afficherCategoriesClub.fxml"));
         primaryStage.setScene(new Scene(root));

@@ -5,6 +5,8 @@
  */
 package projet.services;
 
+import java.io.File;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -15,9 +17,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
+import jxl.Workbook;
+import jxl.write.Label;
+import jxl.write.WritableSheet;
+import jxl.write.WritableWorkbook;
+import jxl.write.WriteException;
 import org.controlsfx.control.PopOver;
 import projet.utils.DbConnection;
 import projet.entities.plat;
@@ -43,7 +52,13 @@ public class platService {
             ResultSet res = statement.executeQuery(req);
 
             while (res.next()) {
-                plat p = new plat(res.getInt(1), res.getString(2), res.getString(3), res.getString(4), res.getString(5));
+                plat p = new plat ();
+                p.setId(res.getInt(1));
+                p.setNomPlat(res.getString(2));
+                p.setImage(res.getString(3));
+                p.setType(res.getString(4));
+                p.setStatus(res.getString(5));
+                
                 listplats.add(p);
             }
 
@@ -209,7 +224,83 @@ public class platService {
 
         }
     }
+     public boolean exportXLS() throws WriteException, SQLException {
+        try {
 
+            ObservableList<plat> list = FXCollections.observableArrayList(getListPlats());
+
+            File file = new File("C://Users//hp//Desktop//projetpii//Plats.xls");
+            WritableWorkbook myexcel = Workbook.createWorkbook(file);
+            WritableSheet mysheet = myexcel.createSheet("Plats", 0);
+            Label id = new Label(0, 0, "id");
+            Label nomPlat = new Label(1, 0, "nomPlat");
+            Label type = new Label(2, 0, "type");
+           
+            mysheet.addCell(id);
+            mysheet.addCell(nomPlat);
+            mysheet.addCell(type);
+           
+
+            int i = 1;
+            for (plat p : list) {
+
+                id = new Label(0, i, String.valueOf(p.getId()));
+                nomPlat = new Label(1, i, p.getNomPlat());
+                type = new Label(2, i, p.getType());
+                mysheet.addCell(id);
+                mysheet.addCell(nomPlat);
+                mysheet.addCell(type);
+               
+                i++;
+            }
+
+            myexcel.write();
+            myexcel.close();
+
+            return true;
+
+        } catch (IOException ex) {
+            //        Logger.getLogger(ProduitService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return false;
+    }
+
+    public List<plat> rechercheCategories(String str) {
+        List<plat> categories = new ArrayList<plat>();
+        String sql = "SELECT * FROM plat WHERE nomPlat LIKE ? ";
+        PreparedStatement statement;
+
+        try {
+
+            statement = connection.prepareStatement(sql);
+
+            statement.setString(1, "%" + str + "%");
+            //statement.setString(2, "%" + str + "%");
+            ResultSet rs = statement.executeQuery();
+
+            while (rs.next()) {
+                plat c = new plat();
+                c.setId(rs.getInt(1));
+                c.setNomPlat(rs.getString(2));
+                  c.setStatus(rs.getString(3));
+              
+                c.setImage(rs.getString(4));
+              
+                 c.setType(rs.getString(5));
+               
+                
+                
+                
+         
+             
+                categories.add(c);
+            }
+        } catch (SQLException ex) {
+
+        }
+        return categories;
+    }
      //controle de saisie
     private static Matcher matcher;
     private static final String chaineSimple_sanEspace_pattern = "^[A-Za-z]+$";
@@ -217,6 +308,13 @@ public class platService {
 
     public static boolean validationChaineSimpleSansEspace(final String chaineSaisie) {
         matcher = chaineSimple_pattern__sanEspace_complie.matcher(chaineSaisie);
+        return matcher.matches();
+    }
+    private static final String email_pattern = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+    private static Pattern email_pattern_compile = Pattern.compile(email_pattern);
+
+    public static boolean validationEmail(final String emailSaisie) {
+        matcher = email_pattern_compile.matcher(emailSaisie);
         return matcher.matches();
     }
 }

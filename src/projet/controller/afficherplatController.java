@@ -8,7 +8,9 @@ package projet.controller;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDialog;
 import com.jfoenix.controls.JFXDialogLayout;
+import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.events.JFXDialogEvent;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -20,8 +22,11 @@ import javafx.fxml.Initializable;
 import projet.entities.plat;
 import projet.services.platService;
 import java.util.ResourceBundle;
+import java.util.Timer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -48,16 +53,40 @@ import projet.services.platService;
 
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.HBox;
+import javafx.util.Duration;
+import jxl.Workbook;
+import jxl.write.WritableSheet;
+import jxl.write.WritableWorkbook;
+import jxl.write.WriteException;
+
 import static projet.controller.ModifierMenuController.id_menu;
+import tray.animations.AnimationType;
+import tray.notification.NotificationType;
+import tray.notification.TrayNotification;
 
 /**
  *
  * @author hp
  */
 public class afficherplatController implements Initializable {
-
+   @FXML
+    private JFXTextField rechercheBar;
     @FXML
-    private StackPane afficherTsEvenementStackPane;
+    private HBox compteur;
+      Boolean isIt = false;
+int counter = 0;
+    int counterMenu = 0;
+    int counterPlat = 0;
+    @FXML
+    private Label countMenu;
+    @FXML
+    private Label countPlat;
+    @FXML
+    private Label c;
+    @FXML
+    private StackPane afficherPlatStackPane;
     @FXML
     private StackPane afficherMenuStackPane;
 
@@ -76,7 +105,12 @@ public class afficherplatController implements Initializable {
 
     @FXML
     private TableView<menu> listeMenus;
-
+    @FXML
+    private TableColumn<?, ?> nbrLike;
+     @FXML
+    private TableColumn<?, ?> nbrFoisLike;
+      @FXML
+    private TableColumn<?, ?> moyenneLike;
     @FXML
     private TableColumn<?, ?> NomjourMenu;
     @FXML
@@ -93,6 +127,9 @@ public class afficherplatController implements Initializable {
         try {
             afficherPlat();
             afficherMenu();
+            compteurMenu();
+            compteurPlat();
+     
         } catch (SQLException ex) {
             Logger.getLogger(afficherplatController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -105,7 +142,6 @@ public class afficherplatController implements Initializable {
         ObservableList<plat> myObservableList = FXCollections.observableArrayList();
         id.setCellValueFactory(new PropertyValueFactory<>("id"));
         nomPlat.setCellValueFactory(new PropertyValueFactory<>("nomPlat"));
-
         image.setCellValueFactory(new PropertyValueFactory<>("image"));
         type.setCellValueFactory(new PropertyValueFactory<>("type"));
         status.setCellValueFactory(new PropertyValueFactory<>("status"));
@@ -130,6 +166,10 @@ public class afficherplatController implements Initializable {
         entree.setCellValueFactory(new PropertyValueFactory<>("nomPlatEntree"));
         plat_principal.setCellValueFactory(new PropertyValueFactory<>("nomPlatPrincipal"));
         dessert.setCellValueFactory(new PropertyValueFactory<>("nomPlatDessert"));
+         nbrLike.setCellValueFactory(new PropertyValueFactory<>("nbrLike"));
+          nbrFoisLike.setCellValueFactory(new PropertyValueFactory<>("nbrFoisLike"));
+          moyenneLike.setCellValueFactory(new PropertyValueFactory<>("moyenneLike"));
+
 
         myList.forEach(e -> {
             myObservableList.add(e);
@@ -238,7 +278,7 @@ public class afficherplatController implements Initializable {
             JFXDialogLayout dialogLayout = new JFXDialogLayout();
             JFXButton button = new JFXButton("OKAY");
             button.getStyleClass().add("dialog-button");
-            JFXDialog dialog = new JFXDialog(afficherTsEvenementStackPane, dialogLayout, JFXDialog.DialogTransition.TOP);
+            JFXDialog dialog = new JFXDialog(afficherPlatStackPane, dialogLayout, JFXDialog.DialogTransition.TOP);
             button.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent mouseEvent) -> {
                 dialog.close();
             });
@@ -247,7 +287,7 @@ public class afficherplatController implements Initializable {
             dialogLayout.setActions(button);
             dialog.show();
             dialog.setOnDialogClosed((JFXDialogEvent event1) -> {
-                afficherTsEvenementStackPane.setEffect(null);
+                afficherPlatStackPane.setEffect(null);
             });
             return;
         }
@@ -304,8 +344,8 @@ public class afficherplatController implements Initializable {
             button.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent mouseEvent) -> {
                 dialog.close();
             });
-            dialogLayout.setHeading(new Label("Modification du plat "));
-            dialogLayout.setBody(new Label("il faut selectionner un plat"));
+            dialogLayout.setHeading(new Label("Modification du menu "));
+            dialogLayout.setBody(new Label("il faut selectionner un menu"));
             dialogLayout.setActions(button);
             dialog.show();
             dialog.setOnDialogClosed((JFXDialogEvent event1) -> {
@@ -340,8 +380,8 @@ public class afficherplatController implements Initializable {
              scene.setFill(Color.TRANSPARENT);
             primaryStage.setScene(scene);
             primaryStage.initStyle(StageStyle.TRANSPARENT);
-            scene.getStylesheets().add(getClass().getResource("/projet/style/EvenementCss.css").toExternalForm());
-            primaryStage.setScene(scene);
+          //  scene.getStylesheets().add(getClass().getResource("/projet/style/EvenementCss.css").toExternalForm());
+           // primaryStage.setScene(scene);
             primaryStage.setMaxWidth(670);
             primaryStage.setMaxHeight(750);
            
@@ -349,6 +389,104 @@ public class afficherplatController implements Initializable {
 
         } catch (IOException ex) {
             System.out.println(ex);
+        }
+    }
+    @FXML
+     public void compteurMenu() throws SQLException {
+        Timer timer = new Timer();
+       menuService ms = new menuService();
+        if (ms.getListMenu().isEmpty()) {
+            countMenu.setText(String.valueOf(0));
+        } else {
+            Timeline timelineCat = new Timeline(new KeyFrame(Duration.seconds(1), ev -> {
+                counterMenu++;
+                countMenu.setText(String.valueOf(counterMenu));
+                int nbrClub=0;
+                try {
+                    nbrClub = ms.getListMenu().size();
+                } catch (SQLException ex) {
+                    Logger.getLogger(afficherplatController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                if (counterMenu == nbrClub) {
+                } else if (isIt) {
+                    timer.cancel();
+                    isIt = false;
+                }
+            }));
+            timelineCat.setCycleCount(ms.getListMenu().size());
+            timelineCat.play();
+        }
+    
+     }
+     public void compteurPlat() throws SQLException {
+        Timer timer = new Timer();
+       platService ps = new platService();
+        if (ps.getListPlats().isEmpty()) {
+            countPlat.setText(String.valueOf(0));
+        } else {
+            Timeline timelineCat = new Timeline(new KeyFrame(Duration.seconds(1), ev -> {
+                counterPlat++;
+                countPlat.setText(String.valueOf(counterPlat));
+                int nbrPlats=0;
+                try {
+                    nbrPlats = ps.getListPlats().size();
+                } catch (SQLException ex) {
+                    Logger.getLogger(afficherplatController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                if (counterPlat == nbrPlats) {
+                } else if (isIt) {
+                    timer.cancel();
+                    isIt = false;
+                }
+            }));
+            timelineCat.setCycleCount(ps.getListPlats().size());
+            timelineCat.play();
+        }
+    }
+     
+    @FXML
+    void afficherMesPlatsGUI(ActionEvent event) throws SQLException {
+     platService service =new platService();
+        try {
+            service.exportXLS();
+             String tilte = "fichier pret";
+                String message = "le fichier est telecharge";
+                TrayNotification tray = new TrayNotification();
+                AnimationType type = AnimationType.POPUP;
+                tray.setAnimationType(type);
+                tray.setTitle(tilte);
+                tray.setMessage(message);
+                tray.setNotificationType(NotificationType.SUCCESS);
+                tray.showAndDismiss(Duration.millis(3000));
+        } catch (WriteException ex) {
+            Logger.getLogger(afficherplatController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+     @FXML
+    private void rechercher(KeyEvent event) throws SQLException {
+
+        if (!rechercheBar.getText().isEmpty()) {
+            listePlats.setVisible(true);
+            List<plat> myList = platService.rechercheCategories(rechercheBar.getText());
+            ObservableList<plat> observableList = FXCollections.observableArrayList();
+
+            id.setCellValueFactory(new PropertyValueFactory<>("id"));
+            nomPlat.setCellValueFactory(new PropertyValueFactory<>("nomPlat"));
+             image.setCellValueFactory(new PropertyValueFactory<>("image"));
+        type.setCellValueFactory(new PropertyValueFactory<>("type"));
+        status.setCellValueFactory(new PropertyValueFactory<>("status"));
+            myList.forEach(e -> {
+
+                observableList.add(e);
+                // System.out.println(observableList);
+            });
+            listePlats.setItems(observableList);
+        } else {
+            if (rechercheBar.getText().isEmpty()) {
+                listePlats.getItems().clear();
+                listePlats.getItems().addAll(platService.getListPlats());
+            }
+
         }
     }
 }

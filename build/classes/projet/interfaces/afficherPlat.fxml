@@ -19,12 +19,13 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import com.jfoenix.controls.JFXButton?>
 
 <AnchorPane  maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="858.0" prefWidth="1050.0" style="-fx-background-color: #02030A;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projet.controller.afficherplatController">
     <children>
-        <VBox alignment="TOP_CENTER" prefHeight="576.0" prefWidth="256.0" style="-fx-background-color: #F4F6F9;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">          
+        <VBox alignment="TOP_CENTER" prefHeight="576.0" prefWidth="256.0" style="-fx-background-color: #2F323A;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">          
             <children>
-                <Button fx:id="btnOverview" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="259.0" stylesheets="@style.css" text="Acceuil" textFill="#e7e5e5">
+                <Button fx:id="btnOverview" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="259.0" style="-fx-background-color: #2F323A;" stylesheets="@style.css" text="Acceuil" textFill="#e7e5e5">
                     <graphic>
                         <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -38,7 +39,7 @@
                         <Insets left="50.0" />
                     </padding>
                 </Button>
-                <Button fx:id="btnOrders" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="259.0" stylesheets="@style.css" text="Gestion Cours">
+                <Button fx:id="btnOrders" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="259.0" style="-fx-background-color: #2F323A;" stylesheets="@style.css" text="Gestion Cours" >
                     <graphic>
                         <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -50,7 +51,7 @@
                         <Insets left="50.0" />
                     </padding>
                 </Button>
-                <Button alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="259.0" stylesheets="@style.css" text="Gestion Evenements">
+                <Button alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="259.0" style="-fx-background-color: #2F323A;" stylesheets="@style.css" text="Gestion Evenements" >
                     <graphic>
                         <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -62,7 +63,7 @@
                         <Insets left="50.0" />
                     </padding>
                 </Button>
-                <Button alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="259.0" stylesheets="@style.css" text="Gestion Notes">
+                <Button alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="259.0" style="-fx-background-color: #2F323A;" stylesheets="@style.css" text="Gestion Notes" >
                     <graphic>
                         <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -74,7 +75,7 @@
                         <Insets left="50.0" />
                     </padding>
                 </Button>
-                <Button fx:id="btnSettings" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="259.0" stylesheets="@style.css" text="Gestion Clubs">
+                <Button fx:id="btnSettings" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="259.0" style="-fx-background-color: #2F323A;" stylesheets="@style.css" text="Gestion Clubs" >
                     <graphic>
                         <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -86,7 +87,7 @@
                         <Insets left="50.0" />
                     </padding>
                 </Button>
-                <Button fx:id="btnSignout" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="259.0" stylesheets="@style.css" text="Gestion Cantine">
+                <Button fx:id="btnSignout" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="259.0" style="-fx-background-color: #2F323A;" stylesheets="@style.css" text="Gestion Cantine" >
                     <graphic>
                         <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -98,7 +99,7 @@
                         <Insets left="50.0" />
                     </padding>
                 </Button>
-                <Button fx:id="btnPackages" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="259.0" stylesheets="@style.css" text="Gestion Reclamations">
+                <Button fx:id="btnPackages" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="259.0" style="-fx-background-color: #2F323A;" stylesheets="@style.css" text="Gestion Reclamations" >
                     <graphic>
                         <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -115,7 +116,7 @@
                 <Insets top="150.0" />
             </padding>
         </VBox>
-        <StackPane fx:id="afficherTsEvenementStackPane" layoutX="258.0" prefHeight="858.0" prefWidth="792.0" style="-fx-background-color: #02030A;">
+        <StackPane fx:id="afficherPlatStackPane" layoutX="258.0" prefHeight="858.0" prefWidth="792.0" style="-fx-background-color: #02030A;">
             <children>
                 <Pane fx:id="pnlCustomer" prefHeight="200.0" prefWidth="200.0" />
                 <Pane fx:id="pnlOrders" prefHeight="200.0" prefWidth="200.0" />
@@ -123,49 +124,17 @@
                 <Pane fx:id="pnlOverview" prefHeight="759.0" prefWidth="793.0" style="-fx-background-color: #fff;">
                     <children>
 
-                        <!--<JFXTextField fx:id="rechercheBar" focusColor="WHITE" layoutX="439.0" layoutY="180.0"  prefHeight="25.0" prefWidth="283.0" promptText="Recherche Ici..." style="-fx-background-color: #fff; -fx-border-color: #B7C3D7; -fx-border-radius: 2em;" unFocusColor="WHITE" />-->
-                        <Button alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="470.0" layoutY="22.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="275.0" style="-fx-background-color: #E5E5E9;" stylesheets="@style.css" text="Accueil &gt; Plats &gt; Liste des plats">
+                     <!--   <JFXTextField fx:id="rechercheBar" focusColor="WHITE" layoutX="439.0" layoutY="180.0"  prefHeight="25.0" prefWidth="283.0" promptText="Recherche Ici..." style="-fx-background-color: #fff; -fx-border-color: #B7C3D7; -fx-border-radius: 2em;" unFocusColor="WHITE" />-->
+                      <!--  <Button alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="470.0" layoutY="22.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="275.0" style="-fx-background-color: #E5E5E9;" stylesheets="@style.css" text="Accueil &gt; Liste des plats et Menus" >
                             <padding>
                                 <Insets left="50.0" />
                             </padding>
                             <graphic>
                                 <FontAwesomeIcon fill="#7f7f7f" glyphName="HOME" wrappingWidth="19.071428298950195" />
                             </graphic>
-                        </Button>
-                        <HBox alignment="CENTER_LEFT" layoutX="30.0" layoutY="74.0" prefHeight="92.0" prefWidth="710.0" spacing="50.0" style="-fx-background-color: #FFFFFF;">
-                            <children>
-                                <!--  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
-                                    <children>
-                                        <Label text="0" textFill="#2a73ff">
-                                            <font>
-                                                <Font name="System Bold" size="26.0" />
-                                            </font>
-                                        </Label>
-                                        <Label text="Plats" />
-                                    </children>
-                                </VBox>
-                                <VBox alignment="CENTER" prefHeight="92.0" prefWidth="123.0">
-                                    <children>
-                                        <Label text="0" textFill="#26bfbc">
-                                            <font>
-                                                <Font name="System Bold" size="26.0" />
-                                            </font>
-                                        </Label>
-                                        <Label text="Menus" />
-                                    </children>
-                                </VBox>
-                                <VBox alignment="CENTER" prefHeight="92.0" prefWidth="114.0">
-                                    <children>
-                                        <Label text="0" textFill="#fa5f7e">
-                                            <font>
-                                                <Font name="System Bold" size="26.0" />
-                                            </font>
-                                        </Label>
-                                        <Label text="Inscriptions" />
-                                    </children>
-                                </VBox>-->
-                            </children>
-                        </HBox>
+                        </Button>-->
+                       
+                        
                         <ScrollPane   layoutX="14.0" layoutY="243.0" prefHeight="215.0" prefWidth="746.0" stylesheets="@style.css">
                             <content>
                                 <TableView fx:id="listePlats" editable="true" prefHeight="219.0" prefWidth="728.0" style="-fx-background-color: #F3F3F3;">
@@ -218,14 +187,96 @@
                             
                         </ScrollPane>
                         <Button layoutX="31.0" layoutY="186.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: #2ABFCC;" onAction="#ajouterGUI" text="+ Ajouter plat" textFill="WHITE" />              
-
-                        <!--<JFXTextField layoutX="310.0" layoutY="42.0" onAction="#search" text="" />-->
-                        <ImageView fitHeight="17.0" fitWidth="16.0" layoutX="691.0" layoutY="189.0" pickOnBounds="true" preserveRatio="true">
+<JFXButton  layoutX="150.0" layoutY="186.0" mnemonicParsing="false" onAction="#afficherMesPlatsGUI" prefHeight="25.0" prefWidth="150.0" style="-fx-background-color: #2ABFCC;" text="Exporter Excel" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font></JFXButton>
+                        <JFXTextField fx:id="rechercheBar" focusColor="WHITE" layoutX="439.0" layoutY="192.0"  prefHeight="25.0" prefWidth="283.0" onKeyPressed="#rechercher" onKeyReleased="#rechercher" promptText="Recherche Ici..." style="-fx-background-color: #fff; -fx-border-color: #B7C3D7; -fx-border-radius: 2em;" unFocusColor="WHITE" />
+                      <ImageView fitHeight="17.0" fitWidth="16.0" layoutX="691.0" layoutY="199" pickOnBounds="true" preserveRatio="true">
                             <image>
                                 <Image url="@../images/icons8_Search_52px.png" />
                             </image>
                         </ImageView>
-                        
+                       
+                         <VBox layoutX="-12" layoutY="0" maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="207.0" prefWidth="799.0" styleClass="content-page" stylesheets="@../../../../projetpii/src/projet/style/backcss.css">
+                            <children>
+                               
+                                <HBox prefHeight="50.0" prefWidth="739.0" styleClass="header-title"  />
+                                <HBox fx:id="compteur" prefHeight="51.0" prefWidth="504.0" styleClass="info-dashboard">
+                                    <children>
+                                        <HBox  prefHeight="100.0" prefWidth="278.0" styleClass="info-item">
+                                            <children>
+                                                <VBox prefHeight="67.0" prefWidth="158.0">
+                                                    <children>
+                                                        <Label prefHeight="17.0" prefWidth="165.0" text="Menus">
+                                                            <font>
+                                                                <Font name="Century Gothic" size="20.0" />
+                                                            </font>
+                                                        </Label>
+                                                        <Label fx:id="countMenu" prefHeight="51.0" prefWidth="158.0" text="0">
+                                                            <font>
+                                                                <Font name="Century Gothic" size="20.0" />
+                                                            </font>
+                                                        </Label>
+                                                    </children>
+                                                </VBox>
+                                                <Button mnemonicParsing="false" style="-fx-background-color: #4099ff;" styleClass="info-button">
+                                                    <graphic>
+                                                        <FontAwesomeIcon glyphName="CUBE" styleClass="info-dashboard-icon" />
+                                                    </graphic>
+                                                </Button>
+                                            </children>
+                                        </HBox>
+                                        <HBox layoutX="276.0" layoutY="10.0" prefHeight="100.0" prefWidth="201.0" styleClass="info-item">
+                                            <children>
+                                                <VBox prefHeight="50.0" prefWidth="113.0">
+                                                    <children>
+                                                        <Label prefHeight="25.0" prefWidth="114.0" text="Plats">
+                                                            <font>
+                                                                <Font name="Century Gothic" size="20.0" />
+                                                            </font>
+                                                        </Label>
+                                                        <Label fx:id="countPlat" prefHeight="51.0" prefWidth="158.0" text="0">
+                                                            <font>
+                                                                <Font name="Century Gothic" size="20.0" />
+                                                            </font>
+                                                        </Label>
+                                                    </children>
+                                                </VBox>
+                                                <Button mnemonicParsing="false" style="-fx-background-color: #2ed8b6;" styleClass="info-button">
+                                                    <graphic>
+                                                        <FontAwesomeIcon glyphName="TREE" styleClass="info-dashboard-icon" />
+                                                    </graphic>
+                                                </Button>
+                                            </children>
+                                        </HBox>
+                                        <HBox prefHeight="100.0" prefWidth="201.0" styleClass="info-item">
+                                            <children>
+                                                <VBox prefHeight="67.0" prefWidth="158.0">
+                                                    <children>
+                                                        <Label prefHeight="17.0" prefWidth="165.0" text="inscriptions">
+                                                            <font>
+                                                                <Font name="Century Gothic" size="20.0" />
+                                                            </font>
+                                                        </Label>
+                                                        <Label fx:id="countClubs1" prefHeight="51.0" prefWidth="158.0" text="250">
+                                                            <font>
+                                                                <Font name="Century Gothic" size="20.0" />
+                                                            </font>
+                                                        </Label>
+                                                    </children>
+                                                </VBox>
+                                                <Button mnemonicParsing="false" style="-fx-background-color: #ffb64d;" styleClass="info-button">
+                                                    <graphic>
+                                                        <FontAwesomeIcon glyphName="SLACK" styleClass="info-dashboard-icon" />
+                                                    </graphic>
+                                                </Button>
+                                            </children>
+                                        </HBox>
+                                    </children>
+                                </HBox>
+                            </children>
+                        </VBox>
                     </children>
                 </Pane>
                 
@@ -239,10 +290,14 @@
                     <columns>
                                                
                                              
-                        <TableColumn fx:id="NomjourMenu" maxWidth="186.0" prefWidth="180.0" text="NomjourMenu" />
-                        <TableColumn fx:id="entree" maxWidth="186.0" prefWidth="170.0" text="entree" />
-                        <TableColumn fx:id="plat_principal" maxWidth="200.0" prefWidth="177.0" text="plat_principal" />
-                        <TableColumn fx:id="dessert" maxWidth="186" prefWidth="180" text="dessert" />
+                        <TableColumn fx:id="NomjourMenu" maxWidth="120" prefWidth="180.0" text="NomjourMenu" />
+                        <TableColumn fx:id="entree" maxWidth="105" prefWidth="170.0" text="entree" />
+                        <TableColumn fx:id="plat_principal" maxWidth="120.0" prefWidth="177.0" text="plat_principal" />
+                        <TableColumn fx:id="dessert" maxWidth="100" prefWidth="180" text="dessert" />
+                        <TableColumn fx:id="nbrLike" maxWidth="100" prefWidth="180" text="nbrLike" />
+                        <TableColumn fx:id="nbrFoisLike" maxWidth="100" prefWidth="180" text="nbrFoisLike" />
+                        <TableColumn fx:id="moyenneLike" maxWidth="100" prefWidth="180" text="moyenneLike" />
+
                     </columns>
                     <contextMenu>
                        

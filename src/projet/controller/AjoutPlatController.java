@@ -9,6 +9,7 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 import javafx.scene.input.MouseEvent;
 import java.net.URL;
@@ -38,6 +39,7 @@ import javafx.util.Duration;
 import org.controlsfx.control.PopOver;
 import projet.entities.menu;
 import projet.entities.plat;
+import projet.services.NewsLetterService;
 import projet.services.menuService;
 import projet.services.platService;
 import tray.animations.AnimationType;
@@ -52,11 +54,11 @@ import tray.notification.TrayNotification;
 public class AjoutPlatController implements Initializable {
 
     @FXML
-    private JFXComboBox<String> entree;
+    public JFXComboBox<String> entree;
     @FXML
-    private JFXComboBox<String> plat_principal;
+    public JFXComboBox<String> plat_principal;
     @FXML
-    private JFXComboBox<String> dessert;
+    public JFXComboBox<String> dessert;
 
     @FXML
     private AnchorPane layersignup;
@@ -106,7 +108,7 @@ public class AjoutPlatController implements Initializable {
     private FileChooser fileChooser;
     platService platService = new platService();
     menuService menuService = new menuService();
-
+ private NewsLetterService newsLetter = new NewsLetterService();
     /**
      * Initializes the controller class.
      */
@@ -392,6 +394,12 @@ public class AjoutPlatController implements Initializable {
                 tray.setMessage(message);
                 tray.setNotificationType(NotificationType.SUCCESS);
                 tray.showAndDismiss(Duration.millis(3000));
+                
+                List<String> listeEmail = newsLetter.retournerListeEmails();
+                for (String i : listeEmail) {
+                    System.out.println(i);
+                    newsLetter.sendMail("linda.guesmi@esprit.tn","samsung11", i, "nouveau menu","Notre nouveau menu est :"+ entree.getValue()+" "+plat_principal.getValue() +" "+dessert.getValue());
+                }
           
         }
     }

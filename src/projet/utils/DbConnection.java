@@ -21,7 +21,7 @@ public class DbConnection {
     
     private DbConnection(){
         
-        String url="jdbc:mysql://localhost:3306/ecole";
+        String url="jdbc:mysql://localhost:3306/Gestion_ecole";
         String username="root";
         String password="";
         
