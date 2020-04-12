@@ -1,0 +1,36 @@
+<html>
+   <head>
+      <title></title>
+     
+            <meta http-equiv="Pragma" content="no-cache">
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+            <base target="_self">
+   </head>
+   <body>
+      <table border="0" cellpadding="5" cellspacing="5" width="100%">
+        <tr>
+        
+        <td align="center">La connexion d'Internet n'est pas op&eacute;rationnelle.
+</td>
+        </tr>
+        <tr>
+             <td> 
+                  Vous pouvez cliquer ci-dessous pour configurer votre routeur.
+
+             </td>
+        
+        </tr>
+        <tr>
+             <td><A HREF="http://myrouter">Configurez le routeur
+</A>
+             </td>
+        </tr>
+        <tr>
+              <td>
+              		S'il vous plaît redémarrer votre navigateur Web lorsque vous êtes sûr que l'Internet est en place.
+
+              </td>
+	</tr>
+      </table>
+   </body>
+</html>
