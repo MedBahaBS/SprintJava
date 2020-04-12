@@ -12,6 +12,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import projet.entities.menu;
@@ -130,11 +132,41 @@ public class menuService {
             if (res > 0) {
                 return true;
             }
+            
         } catch (SQLException e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();
         }
         return false;
+    }
+    
+    public ArrayList<menu> TopMenu() {
+        ArrayList<menu> top3 = new ArrayList<>();
+        String req = "SELECT m.id, p.nomPlat, pp.nomPlat, ppp.nomPlat,m.entree,m.platprincipal,m.dessert,m.jourMenu,m.nbrFoisLike,m.nbrLike,m.moyenneLike  FROM menu m, plat p,plat pp,plat ppp WHERE (m.entree = p.id AND m.platprincipal=pp.id AND m.dessert=ppp.id)  ORDER BY moyenneLike DESC LIMIT 3";
+        try {
+            PreparedStatement ps = connection.prepareStatement(req);
+            ps.executeQuery();
+            ResultSet res = ps.getResultSet();
+            while (res.next()) {
+                menu mm = new menu();
+                mm.setId(res.getInt(1));
+                mm.setNomPlatEntree(res.getString(2));
+                mm.setNomPlatPrincipal(res.getString(3));
+                mm.setNomPlatDessert(res.getString(4));
+                mm.setEntree(res.getInt(5));
+                mm.setPlatprincipale(res.getInt(6));
+                mm.setDessert(res.getInt(7));
+                mm.setJourMenu(res.getString(8));
+                mm.setNbrFoisLike(res.getInt(9));
+                mm.setNbrLike(res.getInt(10));
+                  mm.setMoyenneLike(res.getInt(11));
+                top3.add(mm);
+                System.out.println(mm);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(menuService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return top3;
     }
     
 }

@@ -142,9 +142,10 @@ int counter = 0;
         ObservableList<plat> myObservableList = FXCollections.observableArrayList();
         id.setCellValueFactory(new PropertyValueFactory<>("id"));
         nomPlat.setCellValueFactory(new PropertyValueFactory<>("nomPlat"));
+        status.setCellValueFactory(new PropertyValueFactory<>("status"));
         image.setCellValueFactory(new PropertyValueFactory<>("image"));
         type.setCellValueFactory(new PropertyValueFactory<>("type"));
-        status.setCellValueFactory(new PropertyValueFactory<>("status"));
+       
 
         myList.forEach(e -> {
             myObservableList.add(e);

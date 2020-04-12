@@ -55,9 +55,10 @@ public class platService {
                 plat p = new plat ();
                 p.setId(res.getInt(1));
                 p.setNomPlat(res.getString(2));
-                p.setImage(res.getString(3));
-                p.setType(res.getString(4));
-                p.setStatus(res.getString(5));
+                 p.setStatus(res.getString(3));
+                p.setImage(res.getString(4));
+                p.setType(res.getString(5));
+               
                 
                 listplats.add(p);
             }
@@ -73,8 +74,8 @@ public class platService {
 
     public void ajouterPlat(plat p) throws SQLException {
 
-        String req = "INSERT INTO `plat` (`id`, `nomPlat`, `image`, `type`,`status`) VALUES ( '"
-                + p.getId() + "', '" + p.getNomPlat() + "', '" + p.getImage() + "', '" + p.getType() + "', '" + p.getStatus() + "') ";
+        String req = "INSERT INTO `plat` (`id`, `nomPlat`,`status`, `image`, `type`) VALUES ( '"
+                + p.getId() + "', '" + p.getNomPlat() + "', '" + p.getStatus() + "', '" + p.getImage() + "', '" + p.getType() + "') ";
         Statement stm = connection.createStatement();
         stm.executeUpdate(req);
 
@@ -267,7 +268,7 @@ public class platService {
     }
 
     public List<plat> rechercheCategories(String str) {
-        List<plat> categories = new ArrayList<plat>();
+        List<plat> plats = new ArrayList<plat>();
         String sql = "SELECT * FROM plat WHERE nomPlat LIKE ? ";
         PreparedStatement statement;
 
@@ -289,17 +290,13 @@ public class platService {
               
                  c.setType(rs.getString(5));
                
-                
-                
-                
-         
-             
-                categories.add(c);
+           
+                plats.add(c);
             }
         } catch (SQLException ex) {
 
         }
-        return categories;
+        return plats;
     }
      //controle de saisie
     private static Matcher matcher;

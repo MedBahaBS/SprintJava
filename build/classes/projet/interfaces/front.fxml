@@ -1,24 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
+<?import com.jfoenix.controls.JFXListView?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.layout.BorderPane?>
+<?import projet.controller.Acceuilfront?>
 
-<ScrollPane hbarPolicy="NEVER" prefHeight="850.0" prefWidth="1002.0" stylesheets="@../style/gestionproduit.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projet.controller.FrontController">
+<ScrollPane hbarPolicy="NEVER" prefHeight="600.0" prefWidth="1002.0"  stylesheets="@../style/gestionproduit.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projet.controller.FrontController">
     <content>
-        <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="1000.0" style="-fx-background-color: #D5CEC6;" styleClass="content-produit">
+        <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="1000.0" style="-fx-background-color: #F3F3F3;" styleClass="content-produit">
 
-      
-    
          <children>
                   <HBox alignment="CENTER" layoutX="-1.0" layoutY="-2.0" prefHeight="79.0" prefWidth="976.0" spacing="8.0" style="-fx-background-color: #2F323A;">
          <children>
@@ -79,13 +86,13 @@
                </children>
             </VBox>
             <Separator orientation="VERTICAL" prefHeight="200.0" />
-            <HBox alignment="CENTER" prefHeight="79.0" prefWidth="163.0" spacing="6.0" style="-fx-background-color: #2F323A;">
+            <HBox alignment="CENTER" prefHeight="79.0" prefWidth="157.0" spacing="6.0" style="-fx-background-color: #2F323A;">
                <children>
                   <VBox alignment="CENTER_RIGHT" fillWidth="false" prefHeight="90.0" prefWidth="126.0" spacing="5.0" style="-fx-background-color: #2F323A;">
                      <children>
-                        <Label fx:id="LblUserName" prefHeight="21.0" prefWidth="127.0" text="User name" textAlignment="RIGHT" textFill="WHITE">
+                        <Label fx:id="nomUser" prefHeight="21.0" prefWidth="127.0" text="Username" textFill="WHITE">
                            <font>
-                              <Font size="15.0" />
+                              <Font name="System Bold" size="15.0" />
                            </font>
                         </Label>
                         <Separator prefHeight="0.0" prefWidth="118.0" />
@@ -95,23 +102,89 @@
                            </font>
                         </Label>
                      </children>
-                  </VBox>
+                  </VBox> 
                </children>
             </HBox>
          </children>
       </HBox>
          
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="291.0" layoutY="52.0" prefHeight="157.0" prefWidth="1000.0" text="Nos Menus" textAlignment="CENTER">
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="291.0" layoutY="52.0" prefHeight="157.0" prefWidth="1000.0" text="Nos Menus" textAlignment="CENTER">
                <font>
                   <Font name="Bernard MT Condensed" size="42.0" />
                </font>
             </Label>
             
-            <HBox fx:id="content_product" layoutY="166.0" prefHeight="253.0" prefWidth="1000.0">
+            <HBox fx:id="content_product" layoutY="166.0" prefHeight="253.0" prefWidth="965.0">
               </HBox>
+              
+                 <Label alignment="CENTER" contentDisplay="CENTER" layoutX="291.0" layoutY="100.0" prefHeight="157.0" prefWidth="1000.0" text="TOP 3 des menus" textAlignment="CENTER">
+               <font>
+                  <Font name="Bernard MT Condensed" size="42.0" />
+               </font>
+            </Label>
+                <HBox fx:id="content_top3" layoutY="190.0" prefHeight="253.0" prefWidth="965.0">
+              </HBox>
+              
+                  <Button layoutX="197.0" layoutY="95.0" mnemonicParsing="false" onAction="#ajouterInscrip" prefHeight="34.0" prefWidth="137.0"  styleClass="font-button" text="s'inscrire" />
+
+                    <Label alignment="CENTER" contentDisplay="CENTER" layoutX="291.0" layoutY="100.0" prefHeight="157.0" prefWidth="1000.0" text="Espace pour partager vos avis" textAlignment="CENTER">
+               <font>
+                  <Font name="Bernard MT Condensed" size="42.0" />
+               </font>
+            </Label>
+                  
+                  <StackPane fx:id="DetailsEvenementStackPane" prefHeight="400.0" prefWidth="592.0" styleClass="pageDetails" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" >
+   <children>
+      <AnchorPane fx:id="GUI" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="728.0" stylesheets="@EvenementCss.css">
+         <children>
+            <BorderPane layoutX="-14.0" layoutY="36.0" prefHeight="200.0" prefWidth="742.0" AnchorPane.bottomAnchor="-11.0" AnchorPane.leftAnchor="-14.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="36.0">
                
+               <center>
+                  <VBox prefHeight="200.0" prefWidth="807.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="144.0" prefWidth="742.0">
+                           <children>
+                              <ScrollPane fx:id="scrollPaneCommentaire" hbarPolicy="NEVER" prefHeight="146.0" prefWidth="688.0" style="-fx-background-color: white; -fx-background-radius: 20;" stylesheets="@EvenementCss.css">
+                                 <content>
+                                    <VBox fx:id="content" prefHeight="151.0" prefWidth="707.0" />
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                        </HBox>
+                        
+                        <HBox  alignment="CENTER"  prefHeight="75.0" prefWidth="593.0"  >
+                                 <children>
+                                    <TextArea fx:id="commentaire_text_fx" prefHeight="87.0" prefWidth="575.0" >
+                                       <HBox.margin>
+                                          <Insets top="20.0" />
+                                       </HBox.margin>
+                                    </TextArea>
+                                 </children>
+                              </HBox>
+                              
+                               <HBox alignment="CENTER" prefHeight="87.0" prefWidth="374.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" onAction="#ajouterCommentaireEvenement" prefHeight="49.0" prefWidth="152.0" styleClass="font-button" text="Partager" />
+                                 </children>
+                              </HBox>
+                       
+                     </children>
+                  </VBox>
+               </center>
+            </BorderPane>
+           
             
-                  <AnchorPane id="AnchorPane" layoutX="-6.0" layoutY="499.0" prefHeight="334.0" prefWidth="1000.0" style="-fx-background-color: #F3F3F3;">
+         </children>
+      </AnchorPane>
+   </children>
+   <stylesheets>
+      <URL value="@EvenementCss.css" />
+      <URL value="@../style/EvenementCss.css" />
+   </stylesheets>
+</StackPane>
+
+
+                  <AnchorPane id="AnchorPane" layoutX="-6.0" layoutY="499.0" prefHeight="334.0" prefWidth="1000.0"  style="-fx-background-color: #F3F3F3;">
                      <children>
                         <AnchorPane prefHeight="318.0" prefWidth="371.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
@@ -127,10 +200,10 @@
                               </Label>
                            </children>
                         </AnchorPane>
-                        <Pane layoutX="441.0" layoutY="83.0" prefHeight="206.0" prefWidth="397.0" AnchorPane.bottomAnchor="45.0" AnchorPane.topAnchor="83.0">
+                        <Pane layoutX="440.0" layoutY="81.0" prefHeight="206.0" prefWidth="472.0" AnchorPane.bottomAnchor="47.0" AnchorPane.topAnchor="81.0" stylesheets="@EvenementCss.css">
                            <children>
                               <TextField fx:id="emailField" layoutY="32.0" prefHeight="60.0" prefWidth="293.0" promptText="Entrer votre email " />
-                              <Button fx:id="inscription" layoutX="197.0" layoutY="95.0" mnemonicParsing="false" onAction="#EnregitrerEmail" prefHeight="34.0" prefWidth="137.0" text="Enregistrer" />
+                              <Button fx:id="inscription" layoutX="236.0" layoutY="86.0" mnemonicParsing="false" onAction="#EnregitrerEmail" styleClass="font-button" prefHeight="34.0" prefWidth="137.0" text="Enregistrer" />
                               <Label alignment="CENTER" layoutY="169.0" onMouseClicked="#SeDesabonner" prefHeight="23.0" prefWidth="203.0" text="Vous voulez vous desabonner?" textFill="#5383ff">
                                  <font>
                                     <Font name="Segoe UI" size="12.0" />

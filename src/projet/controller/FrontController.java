@@ -5,86 +5,112 @@
  */
 package projet.controller;
 
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXDialog;
+import com.jfoenix.controls.JFXDialogLayout;
+import com.jfoenix.controls.events.JFXDialogEvent;
+import com.jfoenix.effects.JFXDepthManager;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.List;
+import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.effect.BoxBlur;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 import org.controlsfx.control.Rating;
 import projet.entities.menu;
 import projet.services.menuService;
 import projet.services.platService;
-
+import projet.controller.Acceuilfront;
 import tray.animations.AnimationType;
 import tray.notification.NotificationType;
 import tray.notification.TrayNotification;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import projet.entities.Inscription;
+import projet.services.InscriptionService;
 import projet.services.NewsLetterService;
-
+import projet.entities.CommentaireEvenement;
+import projet.services.ServiceCommentaireEvenement;
 /**
  * FXML Controller class
  *
  * @author hp
  */
 public class FrontController implements Initializable {
+    
+      @FXML
+    private Label nomUser;
+String namee;
+    /* commentaire */
+   public CommentaireEvenement commentaire ;
+     @FXML
+    private StackPane DetailsEvenementStackPane;
 
+    @FXML
+    private AnchorPane GUI;
+    @FXML
+    public ListView<String> ListView_commentaire;
+    @FXML
+    private TextArea commentaire_text_fx;
+
+    @FXML
+    private MenuItem modifier_commentaire_fx;
+
+    @FXML
+    private MenuItem supprimer_commentaire_fx;
+private ServiceCommentaireEvenement sc= new ServiceCommentaireEvenement();
+    @FXML
+    private VBox content;
+    @FXML
+    private VBox content2;
+
+    public List<CommentaireEvenement> listCommentaireController;
+    /*end commentaire */
+    @FXML
+    private StackPane afficherTsEvenementStackPane;
+
+    @FXML
+    private ScrollPane scrollPaneCommentaire;
+
+   
+InscriptionService service = new InscriptionService();
     menu exp;
     private menu experience;
     @FXML
     private HBox content_product;
-    @FXML
-    private Label id1;
-    @FXML
-    private Label menu1;
-    @FXML
-    private Label menu2;
-    @FXML
-    private Label menu3;
-    @FXML
-    private Label menu4;
-    @FXML
-    private Label entree1;
-    @FXML
-    private Label entree2;
-    @FXML
-    private Label entree3;
-    @FXML
-    private Label entree4;
-    @FXML
-    private Label platP1;
-    @FXML
-    private Label platP2;
+     @FXML
+    private HBox content_top3;
     @FXML
     private HBox hb;
     @FXML
     private HBox meilleursProduit;
-    @FXML
-    private Label platP3;
-    @FXML
-    private Label platP4;
-    @FXML
-    private Label dessert1;
-    @FXML
-    private Label dessert2;
-    @FXML
-    private Label dessert3;
-    @FXML
-    private Label dessert4;
+    
     menuService menuService = new menuService();
      @FXML
     private TextField emailField;
@@ -95,7 +121,52 @@ public class FrontController implements Initializable {
     private Label msg;
     public int valeurEtoile;
     private HBox row;
+     private HBox row2;
+public int id;
 
+  public void setDataCommentaire() {
+       
+        content.getChildren().clear();
+        commentaires();
+
+    }
+ ObservableList<CommentaireEvenement> dataComment = FXCollections.observableArrayList();
+
+    public void commentaires() {
+        dataComment.clear();
+        try {
+            dataComment.addAll(sc.afficherCommentaire());
+
+            HBox hbox = new HBox();
+            content.getChildren().add(hbox);
+            int index = 0;
+
+            JFXDepthManager.setDepth(hbox, 0);
+
+            for (CommentaireEvenement commentaire : dataComment) {
+
+                if (index % 1 == 0) {
+                    hbox = new HBox();
+                    content.getChildren().add(hbox);
+                }
+
+               
+
+                Label c = new Label();
+                c.setText(commentaire.getId_user() + " " + commentaire.getMeessage());
+
+                HBox hb = new HBox();
+                hb.getChildren().addAll(c);
+                hb.setMargin(c, new Insets(1, 1, 1, 1));
+
+                hbox.getChildren().add(hb);
+                index++;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
     /**
      * Initializes the controller class.
      */
@@ -103,17 +174,14 @@ public class FrontController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         try {
             List<menu> myList = menuService.getListMenu();
+         List<menu> myList1 = menuService.TopMenu();
 
             content_product.getChildren().clear();
-
+            content_top3.getChildren().clear();
             int index = 0;
 
             for (menu produit : myList) {
-                /* try {
-                    rating(produit);
-                } catch (FileNotFoundException ex) {
-                    Logger.getLogger(FrontController.class.getName()).log(Level.SEVERE, null, ex);
-                }*/
+               
                 if (index % 5 == 0) {
                     row = new HBox();
                     row.getStyleClass().add("content-item");
@@ -126,9 +194,9 @@ public class FrontController implements Initializable {
                 title.getStyleClass().add("title_prod");
 
                 title.setStyle("-fx-font-weight: bold");
-                Label prix = new Label(produit.getNomPlatDessert());
+                Label prix = new Label(produit.getNomPlatEntree());
                 Label platp = new Label(produit.getNomPlatPrincipal());
-                Label dessert = new Label(produit.getNomPlatEntree());
+                Label dessert = new Label(produit.getNomPlatDessert());
                 Rating r = new Rating();
                 r.setRating(0);
                 r.ratingProperty().addListener((ObservableValue<? extends Number> ov, Number t, Number t1) -> {
@@ -168,90 +236,34 @@ public class FrontController implements Initializable {
 
                 index++;
             }
-
-            /*rating.ratingProperty().addListener(new ChangeListener<Number>() {
-            @Override public void changed(ObservableValue<? extends Number> ov, Number t, Number t1) {
-              msg.setText("Rating : "+ t1.toString());
-              }});*/
-
- /* for(int i=0;i<myList.size();i++){
-           if(i==0){
-        menu1.setText(myList.get(i).getJourMenu());
-        entree1.setText(myList.get(i).getNomPlatEntree());
-        platP1.setText(myList.get(i).getNomPlatPrincipal());
-        dessert1.setText(myList.get(i).getNomPlatDessert());
-        rating(myList.get(0));
-  //                     System.out.println(myList.get(0).getNbrFoisLike());
-
-           }
-        else if(i==1)
-                {
-                 
-       
-        menu2.setText(myList.get(i).getJourMenu());
-        entree2.setText(myList.get(i).getNomPlatEntree());
-        platP2.setText(myList.get(i).getNomPlatPrincipal());
-        dessert2.setText(myList.get(i).getNomPlatDessert());
-        rating(myList.get(1));
-    }
-            else if(i==2)
-                {
-                 
-       
-        menu3.setText(myList.get(i).getJourMenu());
-        entree3.setText(myList.get(i).getNomPlatEntree());
-        platP3.setText(myList.get(i).getNomPlatPrincipal());
-        dessert3.setText(myList.get(i).getNomPlatDessert());
-    }
-           
-           else if(i==3)
-                {
-                 
-       
-        menu4.setText(myList.get(i).getJourMenu());
-        entree4.setText(myList.get(i).getNomPlatEntree());
-        platP4.setText(myList.get(i).getNomPlatPrincipal());
-        dessert4.setText(myList.get(i).getNomPlatDessert());
-    }
-                }
-       
-         Label menu=new Label(myList.get(i).getJourMenu());
-         Label platE=new Label(myList.get(i).getNomPlatEntree());
-          Label platT=new Label(myList.get(i).getNomPlatPrincipal());
-         hb.getChildren().addAll(menu,platE,platT);*/
- /*int index = 0;
-            for (menu produit : myList) {
-
-                if (index % 5 == 0) {
-                    meilleursProduit = new HBox();
-                    meilleursProduit.getStyleClass().add("content-item");
-                }
-                VBox content = new VBox();
-
-                Label title = new Label(produit.getJourMenu());
-                title.getStyleClass().add("title_prod");
-                Label Entree = new Label(produit.getNomPlatEntree());
-                Entree.getStyleClass().add("title_sub");
-                Label PlatP = new Label(produit.getNomPlatPrincipal());
-                PlatP.getStyleClass().add("title_sub");
-                Label Dessert = new Label(produit.getNomPlatDessert());
-                Dessert.getStyleClass().add("title_sub");
-                Rating r = new Rating();
-
-                content.getChildren().addAll(title, Entree, PlatP, Dessert, r);
-                /* Button item = new Button("", content);
-            item.setOnAction(event -> {
-                detailExperience(produit);
-            });
-
-                meilleursProduit.getChildren().add(content);
-
-                content_product.getChildren().add(meilleursProduit);
-
-            }*/
+int i = 0;
+          for (menu produit : myList1) {
+             
+             if (i % 3 == 0) {
+                 row2 = new HBox();
+                 row2.getStyleClass().add("content-item");
+                 content_top3.getChildren().add(row2);
+             }
+             VBox content2 = new VBox();
+             
+             Label title = new Label(produit.getJourMenu());
+             title.getStyleClass().add("title_prod");
+             
+             title.setStyle("-fx-font-weight: bold");
+             Label label1 = new Label(produit.getNomPlatEntree());
+             Label label2 = new Label(produit.getNomPlatPrincipal());
+             Label label3 = new Label(produit.getNomPlatDessert());
+             
+             content2.getChildren().addAll(title,label1,label2, label3);
+             System.out.println("lllllll");
+             row2.getChildren().add(content2);
+             
+             i++;
+         }
         } catch (SQLException ex) {
             Logger.getLogger(FrontController.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
     }
 
 
@@ -297,42 +309,111 @@ public class FrontController implements Initializable {
         tray.setNotificationType(NotificationType.SUCCESS);
         tray.showAndDismiss(Duration.millis(3000));
     }
+ @FXML
+    public void ajouterInscrip(ActionEvent even) {
+      
+        Inscription insc = new Inscription();
+        
+     
+        insc.setStatus("non traitée");
+        insc.setIdUser(id);
+        System.out.println("hjbjkbjkb");
+        service.ajouterInscription(insc);
+        
+        String tilte = "Inscription enregistre";
+        String message = "votre inscription a été bien enregistrée.";
+        TrayNotification tray = new TrayNotification();
+        AnimationType type = AnimationType.POPUP;
+        tray.setAnimationType(type);
+        tray.setTitle(tilte);
+        tray.setMessage(message);
+        tray.setNotificationType(NotificationType.SUCCESS);
+        tray.showAndDismiss(Duration.millis(3000));
+    }
 
+ @FXML
+    public void ajouterCommentaireEvenement() throws SQLException {
+        //String contenueCommentaireEvenement = commentaire_text_fx.getText();
+        BoxBlur blur = new BoxBlur(2, 2, 2);
+        JFXDialogLayout dialogLayout = new JFXDialogLayout();
+        JFXButton button = new JFXButton("OKAY");
+        button.getStyleClass().add("dialog-button");
+        JFXDialog dialog = new JFXDialog(DetailsEvenementStackPane, dialogLayout, JFXDialog.DialogTransition.TOP);
+        button.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent mouseEvent) -> {
+            dialog.close();
+        });
+        if ((commentaire_text_fx.getText()).isEmpty()) {
+            dialogLayout.setHeading(new Label("Champ commentaire est vide"));
+            dialogLayout.setBody(new Label("vous devez ecrir un commentaire"));
+            dialogLayout.setActions(button);
+            dialog.show();
+            dialog.setOnDialogClosed((JFXDialogEvent event1) -> {
+                GUI.setEffect(null);
+            });
+            GUI.setEffect(blur);
+            return;
+        }
+        /* ListView_commentaire.getItems().add(LocalDate.now() + " Ajouter par " + recupererUtilisateurConnecte.getNom_Utilisateur() +
+                ": \"" + contenueCommentaireEvenement + "\"");*/
+        //recupererUtilisateurConnecte.getNom_Utilisateur()+" : "+contenueCommentaireEvenement a la place de requette qui n'a pas marché 
+        //commentaire.setContenu_commentaire(contenueCommentaireEvenement);
+       setDataCommentaire();
+        sc.ajouterCommentaireEvenement(commentaire_text_fx.getText());
+         String tilte = "Commentaire Accepté";
+        String message = " Merci pour votre avis ";
+        TrayNotification tray = new TrayNotification();
+        AnimationType type = AnimationType.POPUP;
+        tray.setAnimationType(type);
+        tray.setTitle(tilte);
+        tray.setMessage(message);
+        tray.setNotificationType(NotificationType.SUCCESS);
+        tray.showAndDismiss(Duration.millis(3000));
+               
+
+        commentaire_text_fx.clear();
+    }
+    /*@FXML
+     public void Top3(){
+         List<menu> myList1 = menuService.TopMenu();
+         content_top3.getChildren().clear();
+         int i = 0;
+         for (menu produit : myList1) {
+             
+             if (i % 3 == 0) {
+                 row2 = new HBox();
+                 row2.getStyleClass().add("content-item");
+                 content_top3.getChildren().add(row2);
+             }
+             VBox content2 = new VBox();
+             
+             Label title = new Label(produit.getJourMenu());
+             title.getStyleClass().add("title_prod");
+             
+             title.setStyle("-fx-font-weight: bold");
+             Label label1 = new Label(produit.getNomPlatDessert());
+             Label label2 = new Label(produit.getNomPlatPrincipal());
+             Label label3 = new Label(produit.getNomPlatEntree());
+             
+             content2.getChildren().addAll(label1,label2, label3);
+             System.out.println("lllllll");
+             row2.getChildren().add(content2);
+             
+             i++;
+         }
+            
+           
+     
+     }*/
+    
+    public String getUsername(String username) {
+          String ch=username;
+            namee=ch;  
+                           //nomUser.setText("Bienvenue "+ch);
+
+        return ch ;   
+    }
 }
-
-   /* @FXML
-    public void rating(menu exp) throws FileNotFoundException {
-        rating.ratingProperty().addListener((ObservableValue<? extends Number> ov, Number t, Number t1) -> {
-//            System.out.println("ahhhhhhhhhhhh:"+exp.getNbrFoisLike());
-            msg.setText("Rating : " + t1.toString());
-            //rating.setDisable(true);
-            valeurEtoile = t1.intValue();
-
-            String tilte = "Merci pour votre avis";
-            String message = "On a approuvé votre avis.";
-            TrayNotification tray = new TrayNotification();
-            AnimationType type = AnimationType.POPUP;
-            //  System.out.println(exp.getId());
-            System.out.println(valeurEtoile);
-            menu ClubDeBase = new menu();
-            int nbrFoisLike = exp.getNbrFoisLike();
-            System.out.println("nombre precedent: " + nbrFoisLike);
-            nbrFoisLike++;
-            System.out.println(nbrFoisLike);
-            int nbrLike = exp.getNbrLike();
-            nbrLike += valeurEtoile;
-            ClubDeBase.setNbrFoisLike(nbrFoisLike);
-            float moyenneLike = (nbrLike / nbrFoisLike);
-            ClubDeBase.setMoyenneLike(moyenneLike);
-            ClubDeBase.setNbrLike(nbrLike);
-            ClubDeBase.setId(exp.getId());
-            menuService.modifierLike(ClubDeBase);
-            tray.setAnimationType(type);
-            tray.setTitle(tilte);
-            tray.setMessage(message);
-            tray.setNotificationType(NotificationType.SUCCESS);
-            tray.showAndDismiss(Duration.millis(3000));
-        });*/
+   
 
        
 

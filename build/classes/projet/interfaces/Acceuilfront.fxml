@@ -70,17 +70,17 @@
                </children>
             </VBox>
             <Separator orientation="VERTICAL" prefHeight="200.0" />
-            <HBox alignment="CENTER" prefHeight="79.0" prefWidth="157.0" spacing="6.0" style="-fx-background-color: #2F323A;">
+             <HBox alignment="CENTER" prefHeight="79.0" prefWidth="157.0" spacing="6.0" style="-fx-background-color: #2F323A;">
                <children>
                   <VBox alignment="CENTER_RIGHT" fillWidth="false" prefHeight="90.0" prefWidth="126.0" spacing="5.0" style="-fx-background-color: #2F323A;">
                      <children>
-                        <Label fx:id="LblUserName" prefHeight="21.0" prefWidth="127.0" text="User name" textAlignment="RIGHT" textFill="WHITE">
+                        <Label fx:id="nomUser" prefHeight="21.0" prefWidth="127.0" text="Username" textFill="WHITE">
                            <font>
-                              <Font size="15.0" />
+                              <Font name="System Bold" size="15.0" />
                            </font>
                         </Label>
                         <Separator prefHeight="0.0" prefWidth="118.0" />
-                        <Label text="Deconnexion" textFill="WHITE" underline="true">
+                        <Label onMouseClicked="#disconnect" text="Deconnexion" textFill="WHITE" underline="true">
                            <font>
                               <Font size="10.0" />
                            </font>

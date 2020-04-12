@@ -142,10 +142,11 @@
                                     <columns>
                                         <TableColumn fx:id="id" prefWidth="112.0" text="id" />
                                         <TableColumn fx:id="nomPlat" maxWidth="185.0" prefWidth="170.0" text="nom plat" />
+                                       <TableColumn fx:id="status" maxWidth="150.0" prefWidth="126.0" text="status" />
+
                                         <TableColumn fx:id="image" maxWidth="182.0" prefWidth="160.0" text="image" />
                                     
                                         <TableColumn fx:id="type" maxWidth="169.0" prefWidth="155.0" text="type" />
-                                        <TableColumn fx:id="status" maxWidth="150.0" prefWidth="126.0" text="status" />
                                     </columns>
                                     <contextMenu>
                                         

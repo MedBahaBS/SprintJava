@@ -4,10 +4,10 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/hp/Desktop/projetpii/src/projetpii/Projetpii.java</file>
-            <file>file:/C:/Users/hp/Desktop/projetpii/src/projet/style/backcss.css</file>
-            <file>file:/C:/Users/hp/Desktop/projetpii/src/projet/interfaces/afficherPlat.fxml</file>
-            <file>file:/C:/Users/hp/Desktop/projetpii/src/projet/controller/afficherplatController.java</file>
-            <file>file:/C:/Users/hp/Desktop/projetpii/src/projet/services/platService.java</file>
+            <file>file:/C:/Users/hp/Desktop/projetpii/src/projet/interfaces/front.fxml</file>
+            <file>file:/C:/Users/hp/Desktop/projetpii/src/projet/controller/FrontController.java</file>
+            <file>file:/C:/Users/hp/Desktop/projetpii/src/projet/entities/Inscription.java</file>
+            <file>file:/C:/Users/hp/Desktop/projetpii/src/projet/services/InscriptionService.java</file>
         </group>
     </open-files>
 </project-private>
