@@ -127,9 +127,9 @@ public class InscriptionService {
     
       
     public void ajouterInscription(Inscription c) {
-        String requete = "INSERT INTO inscription (id,user,status)"
+        String requete = "INSERT INTO inscription (id,user,status) "
                 + " VALUES ('" + c.getId()+ "','"+c.getIdUser()+ "','"+c.getStatus()+ "');";
-
+        System.out.println(c.getIdUser());
         try {
             pst = connection.prepareStatement(requete);
             pst.executeUpdate(requete);

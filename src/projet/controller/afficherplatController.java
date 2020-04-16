@@ -62,6 +62,7 @@ import jxl.write.WritableWorkbook;
 import jxl.write.WriteException;
 
 import static projet.controller.ModifierMenuController.id_menu;
+import projet.services.InscriptionService;
 import tray.animations.AnimationType;
 import tray.notification.NotificationType;
 import tray.notification.TrayNotification;
@@ -79,10 +80,13 @@ public class afficherplatController implements Initializable {
 int counter = 0;
     int counterMenu = 0;
     int counterPlat = 0;
+     int counterInscrits = 0;
     @FXML
     private Label countMenu;
     @FXML
     private Label countPlat;
+     @FXML
+    private Label countInscrits;
     @FXML
     private Label c;
     @FXML
@@ -121,6 +125,7 @@ int counter = 0;
     private TableColumn<?, ?> dessert;
     platService platService = new platService();
     menuService menuService = new menuService();
+     
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -129,6 +134,7 @@ int counter = 0;
             afficherMenu();
             compteurMenu();
             compteurPlat();
+            compteurInscriptions();
      
         } catch (SQLException ex) {
             Logger.getLogger(afficherplatController.class.getName()).log(Level.SEVERE, null, ex);
@@ -444,6 +450,27 @@ int counter = 0;
             timelineCat.play();
         }
     }
+     public void compteurInscriptions() throws SQLException {
+        Timer timer = new Timer();
+       InscriptionService ps = new InscriptionService();
+        if (ps.selectAllInscris().isEmpty()) {
+            countInscrits.setText(String.valueOf(0));
+        } else {
+            Timeline timelineCat = new Timeline(new KeyFrame(Duration.seconds(1), ev -> {
+                counterInscrits++;
+                countInscrits.setText(String.valueOf(counterInscrits));
+                int nbrInscrits=0;
+                nbrInscrits = ps.selectAllInscris().size();
+                if (counterInscrits == nbrInscrits) {
+                } else if (isIt) {
+                    timer.cancel();
+                    isIt = false;
+                }
+            }));
+            timelineCat.setCycleCount(ps.selectAllInscris().size());
+            timelineCat.play();
+        }
+    }
      
     @FXML
     void afficherMesPlatsGUI(ActionEvent event) throws SQLException {
@@ -489,5 +516,15 @@ int counter = 0;
             }
 
         }
+    }
+    
+     @FXML
+    public void afficherListeInscrits(ActionEvent even) throws IOException {
+        Stage primaryStage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("/projet/interfaces/inscriptionBack.fxml"));
+        Scene scene = new Scene(root);
+       
+        primaryStage.setScene(scene);
+        primaryStage.show();
     }
 }

@@ -389,17 +389,18 @@ public class AjoutPlatController implements Initializable {
                 String message = "votre ajout a été bien enregistré.";
                 TrayNotification tray = new TrayNotification();
                 AnimationType type = AnimationType.POPUP;
-                tray.setAnimationType(type);
-                tray.setTitle(tilte);
-                tray.setMessage(message);
-                tray.setNotificationType(NotificationType.SUCCESS);
-                tray.showAndDismiss(Duration.millis(3000));
+                
                 
                 List<String> listeEmail = newsLetter.retournerListeEmails();
                 for (String i : listeEmail) {
                     System.out.println(i);
                     newsLetter.sendMail("linda.guesmi@esprit.tn","samsung11", i, "nouveau menu","Notre nouveau menu est :"+ entree.getValue()+" "+plat_principal.getValue() +" "+dessert.getValue());
                 }
+                tray.setAnimationType(type);
+                tray.setTitle(tilte);
+                tray.setMessage(message);
+                tray.setNotificationType(NotificationType.SUCCESS);
+                tray.showAndDismiss(Duration.millis(3000));
           
         }
     }

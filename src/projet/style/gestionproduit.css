@@ -262,17 +262,17 @@ Dialog
 }
 
 .best-prod{
-    -fx-background-image: url('../images/pub.jpg');
+    -fx-background-image: url('../images/bg_1.jpg');
     -fx-background-repeat: no-repeat;
     -fx-background-color: transparent;
     -fx-background-position: center;
     -fx-background-size: 1330;
+    
 
 }
 
 .content-best{
-    -fx-background-color: rgba(0,0,0,.7)
-}
+        }
 
 .hbox-filter {
     -fx-padding: 15 0;

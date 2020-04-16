@@ -57,19 +57,17 @@ import projet.services.InscriptionService;
 import projet.services.NewsLetterService;
 import projet.entities.CommentaireEvenement;
 import projet.services.ServiceCommentaireEvenement;
+
 /**
  * FXML Controller class
  *
  * @author hp
  */
 public class FrontController implements Initializable {
-    
-      @FXML
-    private Label nomUser;
-String namee;
+
     /* commentaire */
-   public CommentaireEvenement commentaire ;
-     @FXML
+    public CommentaireEvenement commentaire;
+    @FXML
     private StackPane DetailsEvenementStackPane;
 
     @FXML
@@ -84,7 +82,7 @@ String namee;
 
     @FXML
     private MenuItem supprimer_commentaire_fx;
-private ServiceCommentaireEvenement sc= new ServiceCommentaireEvenement();
+    private ServiceCommentaireEvenement sc = new ServiceCommentaireEvenement();
     @FXML
     private VBox content;
     @FXML
@@ -98,39 +96,38 @@ private ServiceCommentaireEvenement sc= new ServiceCommentaireEvenement();
     @FXML
     private ScrollPane scrollPaneCommentaire;
 
-   
-InscriptionService service = new InscriptionService();
+    InscriptionService service = new InscriptionService();
     menu exp;
     private menu experience;
     @FXML
     private HBox content_product;
-     @FXML
+    @FXML
     private HBox content_top3;
     @FXML
     private HBox hb;
     @FXML
     private HBox meilleursProduit;
-    
+
     menuService menuService = new menuService();
-     @FXML
+    @FXML
     private TextField emailField;
- private NewsLetterService newsLetter = new NewsLetterService();
+    private NewsLetterService newsLetter = new NewsLetterService();
     @FXML
     private Rating rating;
     @FXML
     private Label msg;
     public int valeurEtoile;
     private HBox row;
-     private HBox row2;
-public int id;
+    private HBox row2;
+    public static int id;
 
-  public void setDataCommentaire() {
-       
+    public void setDataCommentaire() {
+
         content.getChildren().clear();
         commentaires();
 
     }
- ObservableList<CommentaireEvenement> dataComment = FXCollections.observableArrayList();
+    ObservableList<CommentaireEvenement> dataComment = FXCollections.observableArrayList();
 
     public void commentaires() {
         dataComment.clear();
@@ -150,8 +147,6 @@ public int id;
                     content.getChildren().add(hbox);
                 }
 
-               
-
                 Label c = new Label();
                 c.setText(commentaire.getId_user() + " " + commentaire.getMeessage());
 
@@ -167,21 +162,28 @@ public int id;
         }
 
     }
+public void setId(int id){
+    this.id=id;
+}
+public int getId(){
+    return this.id;
+}
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        System.out.println("ahhhhhhhhhhhhhhhhh"+id);
         try {
             List<menu> myList = menuService.getListMenu();
-         List<menu> myList1 = menuService.TopMenu();
+            List<menu> myList1 = menuService.TopMenu();
 
             content_product.getChildren().clear();
             content_top3.getChildren().clear();
             int index = 0;
 
             for (menu produit : myList) {
-               
+
                 if (index % 5 == 0) {
                     row = new HBox();
                     row.getStyleClass().add("content-item");
@@ -236,38 +238,38 @@ public int id;
 
                 index++;
             }
-int i = 0;
-          for (menu produit : myList1) {
-             
-             if (i % 3 == 0) {
-                 row2 = new HBox();
-                 row2.getStyleClass().add("content-item");
-                 content_top3.getChildren().add(row2);
-             }
-             VBox content2 = new VBox();
-             
-             Label title = new Label(produit.getJourMenu());
-             title.getStyleClass().add("title_prod");
-             
-             title.setStyle("-fx-font-weight: bold");
-             Label label1 = new Label(produit.getNomPlatEntree());
-             Label label2 = new Label(produit.getNomPlatPrincipal());
-             Label label3 = new Label(produit.getNomPlatDessert());
-             
-             content2.getChildren().addAll(title,label1,label2, label3);
-             System.out.println("lllllll");
-             row2.getChildren().add(content2);
-             
-             i++;
-         }
+            int i = 0;
+            for (menu produit : myList1) {
+
+                if (i % 3 == 0) {
+                    row2 = new HBox();
+                    row2.getStyleClass().add("content-item");
+                    content_top3.getChildren().add(row2);
+                }
+                VBox content2 = new VBox();
+
+                Label title = new Label(produit.getJourMenu());
+                title.getStyleClass().add("title_prod");
+
+                title.setStyle("-fx-font-weight: bold");
+                Label label1 = new Label(produit.getNomPlatEntree());
+                Label label2 = new Label(produit.getNomPlatPrincipal());
+                Label label3 = new Label(produit.getNomPlatDessert());
+
+                content2.getChildren().addAll(title, label1, label2, label3);
+                System.out.println("lllllll");
+                row2.getChildren().add(content2);
+
+                i++;
+            }
+            sc.afficherCommentaire();
         } catch (SQLException ex) {
             Logger.getLogger(FrontController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
 
-
- @FXML
+    @FXML
     private void EnregitrerEmail() {
 
         if (!platService.validationEmail(emailField.getText())) {
@@ -292,8 +294,8 @@ int i = 0;
             tray.setMessage(message);
             tray.setNotificationType(NotificationType.SUCCESS);
             tray.showAndDismiss(Duration.millis(3000));
-      }
-           }    
+        }
+    }
 
     @FXML
     private void SeDesabonner() {
@@ -309,17 +311,19 @@ int i = 0;
         tray.setNotificationType(NotificationType.SUCCESS);
         tray.showAndDismiss(Duration.millis(3000));
     }
- @FXML
+
+    @FXML
     public void ajouterInscrip(ActionEvent even) {
-      
+
         Inscription insc = new Inscription();
-        
-     
+
         insc.setStatus("non traitée");
+        // System.out.println(id);
+        System.out.println(id);
         insc.setIdUser(id);
         System.out.println("hjbjkbjkb");
         service.ajouterInscription(insc);
-        
+
         String tilte = "Inscription enregistre";
         String message = "votre inscription a été bien enregistrée.";
         TrayNotification tray = new TrayNotification();
@@ -331,7 +335,7 @@ int i = 0;
         tray.showAndDismiss(Duration.millis(3000));
     }
 
- @FXML
+    @FXML
     public void ajouterCommentaireEvenement() throws SQLException {
         //String contenueCommentaireEvenement = commentaire_text_fx.getText();
         BoxBlur blur = new BoxBlur(2, 2, 2);
@@ -357,9 +361,10 @@ int i = 0;
                 ": \"" + contenueCommentaireEvenement + "\"");*/
         //recupererUtilisateurConnecte.getNom_Utilisateur()+" : "+contenueCommentaireEvenement a la place de requette qui n'a pas marché 
         //commentaire.setContenu_commentaire(contenueCommentaireEvenement);
-       setDataCommentaire();
-        sc.ajouterCommentaireEvenement(commentaire_text_fx.getText());
-         String tilte = "Commentaire Accepté";
+       
+        sc.ajouterCommentaireEvenement(commentaire_text_fx.getText(),id);
+         setDataCommentaire();
+        String tilte = "Commentaire Accepté";
         String message = " Merci pour votre avis ";
         TrayNotification tray = new TrayNotification();
         AnimationType type = AnimationType.POPUP;
@@ -368,7 +373,6 @@ int i = 0;
         tray.setMessage(message);
         tray.setNotificationType(NotificationType.SUCCESS);
         tray.showAndDismiss(Duration.millis(3000));
-               
 
         commentaire_text_fx.clear();
     }
@@ -404,16 +408,5 @@ int i = 0;
            
      
      }*/
-    
-    public String getUsername(String username) {
-          String ch=username;
-            namee=ch;  
-                           //nomUser.setText("Bienvenue "+ch);
 
-        return ch ;   
-    }
 }
-   
-
-       
-

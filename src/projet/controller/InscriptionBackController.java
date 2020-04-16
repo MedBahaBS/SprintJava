@@ -32,6 +32,7 @@ import projet.entities.Inscription;
 import projet.services.platService;
 import projet.services.menuService;
 import projet.services.InscriptionService;
+
 /**
  * FXML Controller class
  *
@@ -39,7 +40,8 @@ import projet.services.InscriptionService;
  */
 
 public class InscriptionBackController implements Initializable {
-@FXML
+
+    @FXML
     private StackPane afficherTsEvenementStackPane;
     @FXML
     private Pane conteneurCategories;
@@ -59,8 +61,6 @@ public class InscriptionBackController implements Initializable {
     @FXML
     private Pane pnlOverview;
 
-   
-
     @FXML
     public TableView<Inscription> listeClubs;
 
@@ -74,10 +74,9 @@ public class InscriptionBackController implements Initializable {
     private TableColumn<?, ?> actionD;
     @FXML
     private TableColumn<Inscription, String> action;
-    
-    
+
     InscriptionService service = new InscriptionService();
-    
+
     Boolean isIt = false;
     public static ObservableList<Inscription> observableList;
 
@@ -86,19 +85,18 @@ public class InscriptionBackController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
- 
-   
-        
-      afficherCategorieClub();
-    }    
-     @FXML
+
+        afficherCategorieClub();
+    }
+
+    @FXML
     public void afficherCategorieClub() {
         List<Inscription> myList = service.selectAllInscris();
-        
+
         observableList = FXCollections.observableArrayList();
-       id.setCellValueFactory(new PropertyValueFactory<>("id"));
+        id.setCellValueFactory(new PropertyValueFactory<>("id"));
         status.setCellValueFactory(new PropertyValueFactory<>("status"));
-      idUser.setCellValueFactory(new PropertyValueFactory<>("idUser"));
+        idUser.setCellValueFactory(new PropertyValueFactory<>("idUser"));
         action.setCellValueFactory(new PropertyValueFactory<>("btn_delete"));
         actionD.setCellValueFactory(new PropertyValueFactory<>("btn_confirmer"));
         myList.forEach(e -> {
@@ -107,8 +105,4 @@ public class InscriptionBackController implements Initializable {
         });
     }
 
-  
-
-    
-    
 }

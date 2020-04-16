@@ -129,8 +129,8 @@
                 <Pane fx:id="pnlOverview" prefHeight="759.0" prefWidth="793.0" style="-fx-background-color: #fff;">
                     <children>
 
-                     <!--   <JFXTextField fx:id="rechercheBar" focusColor="WHITE" layoutX="439.0" layoutY="180.0"  prefHeight="25.0" prefWidth="283.0" promptText="Recherche Ici..." style="-fx-background-color: #fff; -fx-border-color: #B7C3D7; -fx-border-radius: 2em;" unFocusColor="WHITE" />-->
-                      <!--  <Button alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="470.0" layoutY="22.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="275.0" style="-fx-background-color: #E5E5E9;" stylesheets="@style.css" text="Accueil &gt; Liste des plats et Menus" >
+                        <!--   <JFXTextField fx:id="rechercheBar" focusColor="WHITE" layoutX="439.0" layoutY="180.0"  prefHeight="25.0" prefWidth="283.0" promptText="Recherche Ici..." style="-fx-background-color: #fff; -fx-border-color: #B7C3D7; -fx-border-radius: 2em;" unFocusColor="WHITE" />-->
+                        <!--  <Button alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="470.0" layoutY="22.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="275.0" style="-fx-background-color: #E5E5E9;" stylesheets="@style.css" text="Accueil &gt; Liste des plats et Menus" >
                             <padding>
                                 <Insets left="50.0" />
                             </padding>
@@ -146,12 +146,12 @@
                                    
                                     <columns>
                                    
-                             <TableColumn fx:id="id" maxWidth="149" prefWidth="180" text="id" />
-                              <TableColumn fx:id="status" maxWidth="150" prefWidth="180" text="status" />
-                               <TableColumn fx:id="idUser" maxWidth="149" prefWidth="180" text="idUser" />
-                              <TableColumn fx:id="action" prefWidth="150" />
-                              <TableColumn fx:id="actionD" maxWidth="150" prefWidth="105.0"  />
-                                </columns>
+                                        <TableColumn fx:id="id" maxWidth="149" prefWidth="180" text="id" />
+                                        <TableColumn fx:id="status" maxWidth="150" prefWidth="180" text="status" />
+                                        <TableColumn fx:id="idUser" maxWidth="149" prefWidth="180" text="idUser" />
+                                        <TableColumn fx:id="action" prefWidth="150"  />
+                                        <TableColumn fx:id="actionD" maxWidth="150" prefWidth="105.0"  />
+                                    </columns>
                                    
                                     
                                 </TableView>
@@ -160,7 +160,7 @@
                         </ScrollPane>
                       
                        
-                         <VBox layoutX="-12" layoutY="0" maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="207.0" prefWidth="799.0" styleClass="content-page" stylesheets="@../../../../projetpii/src/projet/style/backcss.css">
+                        <VBox layoutX="-12" layoutY="0" maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="207.0" prefWidth="799.0" styleClass="content-page" stylesheets="@../style/backcss.css">
                             <children>
                                
                                 <HBox prefHeight="50.0" prefWidth="739.0" styleClass="header-title"  />

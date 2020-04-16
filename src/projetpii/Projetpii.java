@@ -25,10 +25,10 @@ import projet.services.platService;
  * @author hp
  */
 public class Projetpii extends Application {
-    
+
     @Override
     public void start(Stage primaryStage) throws SQLException {
-      /*  Button btn = new Button();
+        /*  Button btn = new Button();
         btn.setText("Say 'Hello World'");
         btn.setOnAction(new EventHandler<ActionEvent>() {
             
@@ -47,27 +47,25 @@ public class Projetpii extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
     }*/
-              platService c =new platService();
+        platService c = new platService();
         c.getListPlats();
-        
-       
+
         try {
-        // URL url = new File("src/projet/interfaces/afficherPlat.fxml").toURI().toURL();
-        //  URL url = new File("src/projet/interfaces/inscriptionBack.fxml").toURI().toURL();
-                          URL url = new File("src/GestionUser/SignIn.fxml").toURI().toURL();
-         // URL url = new File("src/projet/interfaces/front.fxml").toURI().toURL();
+          //  URL url = new File("src/projet/interfaces/afficherPlat.fxml").toURI().toURL();
+            //  URL url = new File("src/projet/interfaces/inscriptionBack.fxml").toURI().toURL();
+                        URL url = new File("src/GestionUser/SignIn.fxml").toURI().toURL();
+             //  URL url = new File("src/projet/interfaces/front.fxml").toURI().toURL();
 
             Parent root = FXMLLoader.load(url);
-      //  Parent root = FXMLLoader.load(getClass().getResource("afficherCategoriesClub.fxml"));
-        primaryStage.setScene(new Scene(root));
-        //set stage borderless
-        //primaryStage.initStyle(StageStyle.UNDECORATED);
-        primaryStage.show();    
+            //  Parent root = FXMLLoader.load(getClass().getResource("afficherCategoriesClub.fxml"));
+            primaryStage.setScene(new Scene(root));
+            //set stage borderless
+            //primaryStage.initStyle(StageStyle.UNDECORATED);
+            primaryStage.show();
         } catch (Exception e) {
             e.printStackTrace();
         }
-        
-        
+
     }
 
     /**
@@ -76,5 +74,5 @@ public class Projetpii extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-    
+
 }

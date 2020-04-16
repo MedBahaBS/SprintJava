@@ -33,9 +33,9 @@ public class ServiceCommentaireEvenement {
     DbConnection cnx = DbConnection.getInstance();
     Connection connection = cnx.getConnection();
 
-    public void  ajouterCommentaireEvenement(String commentaireEvenement) throws SQLException {
+    public void  ajouterCommentaireEvenement(String commentaireEvenement,int id) throws SQLException {
         
-        String sql = "INSERT INTO commentaire(message) VALUES('" + commentaireEvenement + "')";
+        String sql = "INSERT INTO commentaire(user,message) VALUES('" + id + "','" + commentaireEvenement + "')";
        try {
             pst = connection.prepareStatement(sql);
             pst.executeUpdate(sql);
