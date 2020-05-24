@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="699.0" prefWidth="1052.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AcceuilFrontController">
+   <children>
+      <ImageView fitHeight="868.0" fitWidth="1050.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/bg_1.jpg" />
+         </image>
+      </ImageView>
+      <HBox alignment="CENTER" layoutX="-1.0" layoutY="-2.0" prefHeight="111.0" prefWidth="1052.0" spacing="8.0" style="-fx-background-color: #2F323A;">
+         <children>
+            <VBox alignment="CENTER_LEFT" fillWidth="false" prefHeight="90.0" prefWidth="177.0" style="-fx-background-color: #2F323A;">
+               <children>
+                  <Label prefHeight="53.0" prefWidth="159.0" text="Genius" textAlignment="RIGHT" textFill="WHITE">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/538738-school_512x512.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Label>
+               </children>
+            </VBox>
+            <Separator orientation="VERTICAL" prefHeight="200.0" styleClass="back" />
+            <VBox alignment="CENTER" prefHeight="107.0" prefWidth="548.0" spacing="4.0" style="-fx-background-color: #2F323A;" HBox.hgrow="ALWAYS">
+               <children>
+                  <Separator prefWidth="200.0" VBox.vgrow="ALWAYS" />
+                  <HBox prefHeight="25.0" prefWidth="420.0" spacing="6.0" VBox.vgrow="NEVER">
+                     <children>
+                        <Button prefHeight="150.0" prefWidth="140.0" style="-fx-background-color: #FAFAFA;" text="Cour" translateX="3.0">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Button>
+                        <Button prefHeight="150.0" prefWidth="140.0" style="-fx-background-color: #FAFAFA;" text="Serie" translateX="1.0">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Button>
+                        <Button prefHeight="150.0" prefWidth="140.0" style="-fx-background-color: #FAFAFA;" text="Evenement">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="btn_club" onAction="#btnclub" prefHeight="150.0" prefWidth="140.0" style="-fx-background-color: #FAFAFA;" text="Club">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="btn_don" onAction="#btndon" prefHeight="150.0" prefWidth="135.0" style="-fx-background-color: #FAFAFA;" text="Don" translateX="-1.0">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Button>
+                        <Button prefHeight="25.0" prefWidth="140.0" style="-fx-background-color: #FAFAFA;" text="abs" translateX="-3.0">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <Separator orientation="VERTICAL" prefHeight="200.0" />
+            <HBox alignment="CENTER" prefHeight="111.0" prefWidth="182.0" spacing="6.0" style="-fx-background-color: &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;?import javafx.scene.control.Button?&gt;&lt;Button fx:id=&quot;web&quot; layoutX=&quot;612.0&quot; layoutY=&quot;787.0&quot; mnemonicParsing=&quot;false&quot; onAction=&quot;#web&quot; style=&quot;-fx-background-color: #2ABFCC;&quot; text=&quot;referencement site web&quot; xmlns=&quot;http://javafx.com/javafx/8.0.171&quot; xmlns:fx=&quot;http://javafx.com/fxml/1&quot; /&gt;;">
+               <children>
+                  <VBox alignment="CENTER_RIGHT" fillWidth="false" prefHeight="90.0" prefWidth="126.0" spacing="5.0" style="-fx-background-color: #2F323A;">
+                     <children>
+                        <Label prefHeight="25.0" prefWidth="118.0" text="Username" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Separator prefHeight="0.0" prefWidth="118.0" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
