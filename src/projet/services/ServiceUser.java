@@ -418,4 +418,8 @@ String rq = "select * from fos_user where enabled ='"+ 0 +"' and (username like'
         
     
     }
+
+    public String getUsername() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

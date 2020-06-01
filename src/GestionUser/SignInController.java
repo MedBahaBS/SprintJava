@@ -87,7 +87,7 @@ public class SignInController implements Initializable {
                 FXMLLoader loader = new FXMLLoader();
                 loader.setLocation(getClass().getResource("/projet/interfaces/Acceuilfront.fxml"));
                 FrontController linda = new FrontController();
-Name=u.getUsername();
+                Name = u.getUsername();
                 ID = us.getId(u.getUsername());
                 linda.setId(ID);
                 Parent detail = loader.load();

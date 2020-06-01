@@ -120,19 +120,19 @@
                         </HBox>
                     </children>
                 </HBox>
-         <HBox prefHeight="250.0" prefWidth="1000.0" styleClass="best-prod">
+                <HBox prefHeight="250.0" prefWidth="1000.0" styleClass="best-prod">
                     <children>
                         <HBox prefHeight="359.0" prefWidth="1324.0">
                             <children>
                                 <VBox prefHeight="359.0" prefWidth="989.0">
                                     <children>
                                         
-                                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="291.0" layoutY="52.0" prefHeight="258.0" prefWidth="989.0" text="Nos Menus" textAlignment="CENTER" textFill="#ababab">
+                                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="291.0" layoutY="52.0" prefHeight="258.0" prefWidth="989.0" text="Nos Menus" textAlignment="CENTER" textFill="#ababab">
                                             <font>
-                                               <Font name="Bernard MT Condensed" size="42.0" />
+                                                <Font name="Bernard MT Condensed" size="42.0" />
                                             </font>
                                            
-                                              </Label>
+                                        </Label>
                                     </children>
                                 </VBox>
                             </children>
@@ -155,7 +155,7 @@
                 <HBox fx:id="content_top3" layoutY="190.0" prefHeight="253.0" prefWidth="965.0">
                 </HBox>
               
-             <!--   <Button layoutX="197.0" layoutY="95.0" mnemonicParsing="false" onAction="#ajouterInscrip" prefHeight="34.0" prefWidth="137.0"  styleClass="font-button" text="s'inscrire" />-->
+                <Button layoutX="197.0" layoutY="95.0" mnemonicParsing="false" onAction="#ajouterInscrip" prefHeight="34.0" prefWidth="137.0"  styleClass="font-button" text="s'inscrire" />
 
                 <Label alignment="CENTER" contentDisplay="CENTER" layoutX="291.0" layoutY="100.0" prefHeight="157.0" prefWidth="1000.0" text="Espace pour partager vos avis" textAlignment="CENTER">
                     <font>
@@ -230,10 +230,10 @@
                                 </Label>
                             </children>
                         </AnchorPane>
-                        <Pane layoutX="440.0" layoutY="81.0" prefHeight="206.0" prefWidth="472.0" stylesheets="@EvenementCss.css" AnchorPane.bottomAnchor="47.0" AnchorPane.topAnchor="81.0">
+                        <Pane layoutX="440.0" layoutY="81.0" prefHeight="206.0" prefWidth="472.0" stylesheets="@../style/EvenementCss.css" AnchorPane.bottomAnchor="47.0" AnchorPane.topAnchor="81.0">
                             <children>
                                 <TextField fx:id="emailField" layoutY="32.0" prefHeight="60.0" prefWidth="293.0" promptText="Entrer votre email " />
-                                <Button fx:id="inscription" layoutX="236.0" layoutY="86.0" mnemonicParsing="false" onAction="#EnregitrerEmail" prefHeight="34.0" prefWidth="137.0" styleClass="font-button" text="Enregistrer" />
+                                <Button fx:id="inscription" layoutX="236.0" layoutY="86.0" mnemonicParsing="false" onAction="#EnregitrerEmail" prefHeight="34.0" prefWidth="200.0" styleClass="font-button" text="Enregistrer" />
                                 <Label alignment="CENTER" layoutY="169.0" onMouseClicked="#SeDesabonner" prefHeight="23.0" prefWidth="203.0" text="Vous voulez vous desabonner?" textFill="#5383ff">
                                     <font>
                                         <Font name="Segoe UI" size="12.0" />

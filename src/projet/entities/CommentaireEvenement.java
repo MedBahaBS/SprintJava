@@ -18,6 +18,16 @@ public class CommentaireEvenement {
     private int id_commentaire;
     private int id_user;
     private String meessage;
+    private String username;
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+    
 
     public CommentaireEvenement() {
 

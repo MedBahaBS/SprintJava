@@ -115,7 +115,7 @@ public class Inscription {
             if (result.get() == ButtonType.OK) {
                 InscriptionService service = new InscriptionService();
                 int idUtillisateur=service.retournerIdUtilisateur(id);
-                cantine c = service.retournerCapacite(id);
+                cantine c = service.retournerCapacite(1);
                 NewsLetterService newsLetter = new NewsLetterService();
                 if (c.getCapacite() > 0) {
                     String emailUtilisateur=service.retournerEmailUtilisateur(idUtillisateur);

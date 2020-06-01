@@ -5,6 +5,7 @@
  */
 package projet.controller;
 
+import animatefx.animation.Pulse;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDialog;
 import com.jfoenix.controls.JFXDialogLayout;
@@ -72,6 +73,12 @@ import tray.notification.TrayNotification;
  * @author hp
  */
 public class afficherplatController implements Initializable {
+     @FXML
+    private HBox conteneurMenu;
+@FXML
+    private HBox conteneurPlat;
+@FXML
+    private HBox conteneurInscription;
    @FXML
     private JFXTextField rechercheBar;
     @FXML
@@ -407,6 +414,8 @@ int counter = 0;
         } else {
             Timeline timelineCat = new Timeline(new KeyFrame(Duration.seconds(1), ev -> {
                 counterMenu++;
+                                new Pulse(conteneurMenu).play();
+
                 countMenu.setText(String.valueOf(counterMenu));
                 int nbrClub=0;
                 try {
@@ -433,6 +442,8 @@ int counter = 0;
         } else {
             Timeline timelineCat = new Timeline(new KeyFrame(Duration.seconds(1), ev -> {
                 counterPlat++;
+                                new Pulse(conteneurPlat).play();
+
                 countPlat.setText(String.valueOf(counterPlat));
                 int nbrPlats=0;
                 try {
@@ -458,6 +469,8 @@ int counter = 0;
         } else {
             Timeline timelineCat = new Timeline(new KeyFrame(Duration.seconds(1), ev -> {
                 counterInscrits++;
+               new Pulse(conteneurInscription).play();
+
                 countInscrits.setText(String.valueOf(counterInscrits));
                 int nbrInscrits=0;
                 nbrInscrits = ps.selectAllInscris().size();

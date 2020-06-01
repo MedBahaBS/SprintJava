@@ -51,16 +51,17 @@ public class ServiceCommentaireEvenement {
         List<CommentaireEvenement> tsCommentaire = new ArrayList<CommentaireEvenement>();
         ResultSet resultSet = null;
         // ResultSet resultSet2 = null;
-         String req = "SELECT * FROM `commentaire`";
+         String req = "SELECT c.message,f.username FROM commentaire c,fos_user f where f.id=c.user";
        try {
             statement = connection.createStatement();
             ResultSet res = statement.executeQuery(req);
 
             while (res.next()) {
                 CommentaireEvenement p = new CommentaireEvenement ();
-                p.setId_commentaire(res.getInt(1));
-                p.setId_user(res.getInt(2));
-                p.setMeessage(res.getString(3));
+                
+               // p.setId_commentaire(res.getInt(3));
+                p.setUsername(res.getString(2));
+                p.setMeessage(res.getString(1));
              
                 tsCommentaire.add(p);
             }

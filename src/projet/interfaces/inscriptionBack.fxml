@@ -1,32 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<?import com.jfoenix.controls.JFXTextField?>
-<?import javafx.geometry.Insets?>
 
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-
-<?import com.jfoenix.controls.JFXButton?>
-
-<AnchorPane id="AnchorPane" prefHeight="300.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projet.controller.InscriptionBackController">
+<AnchorPane id="AnchorPane" prefHeight="300.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="projet.controller.InscriptionBackController">
     <children>
         <VBox alignment="TOP_CENTER" prefHeight="300.0" prefWidth="256.0" style="-fx-background-color: #2F323A;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">          
             <children>
@@ -44,7 +35,7 @@
                         <Insets left="50.0" />
                     </padding>
                 </Button>
-                <Button fx:id="btnOrders" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="259.0" style="-fx-background-color: #2F323A;" stylesheets="@style.css" text="Gestion Cours" >
+                <Button fx:id="btnOrders" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="259.0" style="-fx-background-color: #2F323A;" stylesheets="@style.css" text="Gestion Cours">
                     <graphic>
                         <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -56,7 +47,7 @@
                         <Insets left="50.0" />
                     </padding>
                 </Button>
-                <Button alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="259.0" style="-fx-background-color: #2F323A;" stylesheets="@style.css" text="Gestion Evenements" >
+                <Button alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="259.0" style="-fx-background-color: #2F323A;" stylesheets="@style.css" text="Gestion Evenements">
                     <graphic>
                         <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -68,7 +59,7 @@
                         <Insets left="50.0" />
                     </padding>
                 </Button>
-                <Button alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="259.0" style="-fx-background-color: #2F323A;" stylesheets="@style.css" text="Gestion Notes" >
+                <Button alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="259.0" style="-fx-background-color: #2F323A;" stylesheets="@style.css" text="Gestion Notes">
                     <graphic>
                         <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -80,7 +71,7 @@
                         <Insets left="50.0" />
                     </padding>
                 </Button>
-                <Button fx:id="btnSettings" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="259.0" style="-fx-background-color: #2F323A;" stylesheets="@style.css" text="Gestion Clubs" >
+                <Button fx:id="btnSettings" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="259.0" style="-fx-background-color: #2F323A;" stylesheets="@style.css" text="Gestion Clubs">
                     <graphic>
                         <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -92,7 +83,7 @@
                         <Insets left="50.0" />
                     </padding>
                 </Button>
-                <Button fx:id="btnSignout" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="259.0" style="-fx-background-color: #2F323A;" stylesheets="@style.css" text="Gestion Cantine" >
+                <Button fx:id="btnSignout" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="259.0" style="-fx-background-color: #2F323A;" stylesheets="@style.css" text="Gestion Cantine">
                     <graphic>
                         <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -104,7 +95,7 @@
                         <Insets left="50.0" />
                     </padding>
                 </Button>
-                <Button fx:id="btnPackages" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="259.0" style="-fx-background-color: #2F323A;" stylesheets="@style.css" text="Gestion Reclamations" >
+                <Button fx:id="btnPackages" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="259.0" style="-fx-background-color: #2F323A;" stylesheets="@style.css" text="Gestion Reclamations">
                     <graphic>
                         <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -140,7 +131,7 @@
                         </Button>-->
                        
                         
-                        <ScrollPane   layoutX="14.0" layoutY="243.0" prefHeight="215.0" prefWidth="750" stylesheets="@style.css">
+                        <ScrollPane layoutX="14.0" layoutY="243.0" prefHeight="215.0" prefWidth="750" stylesheets="@style.css">
                             <content>
                                 <TableView fx:id="listeClubs" editable="true" prefHeight="219.0" prefWidth="750" style="-fx-background-color: #F3F3F3;">
                                    
@@ -149,8 +140,8 @@
                                         <TableColumn fx:id="id" maxWidth="149" prefWidth="180" text="id" />
                                         <TableColumn fx:id="status" maxWidth="150" prefWidth="180" text="status" />
                                         <TableColumn fx:id="idUser" maxWidth="149" prefWidth="180" text="idUser" />
-                                        <TableColumn fx:id="action" prefWidth="150"  />
-                                        <TableColumn fx:id="actionD" maxWidth="150" prefWidth="105.0"  />
+                                        <TableColumn fx:id="action" prefWidth="150" />
+                                        <TableColumn fx:id="actionD" maxWidth="150" prefWidth="105.0" />
                                     </columns>
                                    
                                     
@@ -163,10 +154,10 @@
                         <VBox layoutX="-12" layoutY="0" maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="207.0" prefWidth="799.0" styleClass="content-page" stylesheets="@../style/backcss.css">
                             <children>
                                
-                                <HBox prefHeight="50.0" prefWidth="739.0" styleClass="header-title"  />
+                                <HBox prefHeight="50.0" prefWidth="739.0" styleClass="header-title" />
                                 <HBox fx:id="compteur" prefHeight="51.0" prefWidth="504.0" styleClass="info-dashboard">
                                     <children>
-                                        <HBox  prefHeight="100.0" prefWidth="278.0" styleClass="info-item">
+                                        <HBox fx:id="conteneurMenu" prefHeight="100.0" prefWidth="278.0" styleClass="info-item">
                                             <children>
                                                 <VBox prefHeight="67.0" prefWidth="158.0">
                                                     <children>
@@ -189,7 +180,7 @@
                                                 </Button>
                                             </children>
                                         </HBox>
-                                        <HBox layoutX="276.0" layoutY="10.0" prefHeight="100.0" prefWidth="201.0" styleClass="info-item">
+                                        <HBox fx:id="conteneurPlat" layoutX="276.0" layoutY="10.0" prefHeight="100.0" prefWidth="201.0" styleClass="info-item">
                                             <children>
                                                 <VBox prefHeight="50.0" prefWidth="113.0">
                                                     <children>
@@ -212,7 +203,7 @@
                                                 </Button>
                                             </children>
                                         </HBox>
-                                        <HBox prefHeight="100.0" prefWidth="201.0" styleClass="info-item">
+                                        <HBox  fx:id="conteneurInscription" prefHeight="100.0" prefWidth="201.0" styleClass="info-item">
                                             <children>
                                                 <VBox prefHeight="67.0" prefWidth="158.0">
                                                     <children>
@@ -221,7 +212,7 @@
                                                                 <Font name="Century Gothic" size="20.0" />
                                                             </font>
                                                         </Label>
-                                                        <Label fx:id="countClubs1" prefHeight="51.0" prefWidth="158.0" text="250">
+                                                        <Label fx:id="countInscrits" prefHeight="51.0" prefWidth="158.0" text="0">
                                                             <font>
                                                                 <Font name="Century Gothic" size="20.0" />
                                                             </font>

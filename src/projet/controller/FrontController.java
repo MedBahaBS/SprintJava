@@ -120,6 +120,8 @@ public class FrontController implements Initializable {
     private HBox row;
     private HBox row2;
     public static int id;
+        public static String Name;
+
 
     public void setDataCommentaire() {
 
@@ -148,7 +150,7 @@ public class FrontController implements Initializable {
                 }
 
                 Label c = new Label();
-                c.setText(commentaire.getId_user() + " " + commentaire.getMeessage());
+                c.setText(commentaire.getUsername()+ " " + commentaire.getMeessage());
 
                 HBox hb = new HBox();
                 hb.getChildren().addAll(c);
@@ -173,7 +175,7 @@ public int getId(){
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        System.out.println("ahhhhhhhhhhhhhhhhh"+id);
+        setDataCommentaire();
         try {
             List<menu> myList = menuService.getListMenu();
             List<menu> myList1 = menuService.TopMenu();
@@ -262,7 +264,7 @@ public int getId(){
 
                 i++;
             }
-            sc.afficherCommentaire();
+           
         } catch (SQLException ex) {
             Logger.getLogger(FrontController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -357,13 +359,9 @@ public int getId(){
             GUI.setEffect(blur);
             return;
         }
-        /* ListView_commentaire.getItems().add(LocalDate.now() + " Ajouter par " + recupererUtilisateurConnecte.getNom_Utilisateur() +
-                ": \"" + contenueCommentaireEvenement + "\"");*/
-        //recupererUtilisateurConnecte.getNom_Utilisateur()+" : "+contenueCommentaireEvenement a la place de requette qui n'a pas marché 
-        //commentaire.setContenu_commentaire(contenueCommentaireEvenement);
        
         sc.ajouterCommentaireEvenement(commentaire_text_fx.getText(),id);
-         setDataCommentaire();
+        setDataCommentaire();
         String tilte = "Commentaire Accepté";
         String message = " Merci pour votre avis ";
         TrayNotification tray = new TrayNotification();

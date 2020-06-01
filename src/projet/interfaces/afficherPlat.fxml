@@ -188,8 +188,8 @@
                             
                         </ScrollPane>
                         <Button layoutX="31.0" layoutY="186.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: #2ABFCC;" onAction="#ajouterGUI" text="+ Ajouter plat" textFill="WHITE" />              
-                    <!--    <Button layoutX="150.0" layoutY="186.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: #2ABFCC;"  onAction="#afficherListeInscrits"  text=" Liste inscrits" textFill="WHITE" /> -->             
-                        <Button layoutX="150.0" layoutY="186.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: #2ABFCC;"  onAction="#afficherMesPlatsGUI"  text=" exporter excel" textFill="WHITE" />              
+                        <Button layoutX="150.0" layoutY="186.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: #2ABFCC;"  onAction="#afficherListeInscrits"  text=" Liste inscrits" textFill="WHITE" />            
+                        <Button layoutX="270.0" layoutY="186.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: #2ABFCC;"  onAction="#afficherMesPlatsGUI"  text=" exporter excel" textFill="WHITE" />              
 
                        
                         <JFXTextField fx:id="rechercheBar" focusColor="WHITE" layoutX="439.0" layoutY="192.0"  prefHeight="25.0" prefWidth="283.0" onKeyPressed="#rechercher" onKeyReleased="#rechercher" promptText="Recherche Ici..." style="-fx-background-color: #fff; -fx-border-color: #B7C3D7; -fx-border-radius: 2em;" unFocusColor="WHITE" />
@@ -205,7 +205,7 @@
                                 <HBox prefHeight="50.0" prefWidth="739.0" styleClass="header-title"  />
                                 <HBox fx:id="compteur" prefHeight="51.0" prefWidth="504.0" styleClass="info-dashboard">
                                     <children>
-                                        <HBox  prefHeight="100.0" prefWidth="278.0" styleClass="info-item">
+                                        <HBox fx:id="conteneurMenu" prefHeight="100.0" prefWidth="278.0" styleClass="info-item">
                                             <children>
                                                 <VBox prefHeight="67.0" prefWidth="158.0">
                                                     <children>
@@ -228,7 +228,7 @@
                                                 </Button>
                                             </children>
                                         </HBox>
-                                        <HBox layoutX="276.0" layoutY="10.0" prefHeight="100.0" prefWidth="201.0" styleClass="info-item">
+                                        <HBox fx:id="conteneurPlat"  layoutX="276.0" layoutY="10.0" prefHeight="100.0" prefWidth="201.0" styleClass="info-item">
                                             <children>
                                                 <VBox prefHeight="50.0" prefWidth="113.0">
                                                     <children>
@@ -251,7 +251,7 @@
                                                 </Button>
                                             </children>
                                         </HBox>
-                                        <HBox prefHeight="100.0" prefWidth="201.0" styleClass="info-item">
+                                        <HBox  fx:id="conteneurInscription" prefHeight="100.0" prefWidth="201.0" styleClass="info-item">
                                             <children>
                                                 <VBox prefHeight="67.0" prefWidth="158.0">
                                                     <children>
