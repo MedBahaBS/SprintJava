@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?> 
+<?import javafx.scene.text.Font?>  
+<?import  javafx.scene.control.Label?>   
+  
+
+<AnchorPane id="AnchorPane" prefHeight="734.0" prefWidth="1006.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CL.Back.AfficherReclamationController">
+    <stylesheets>
+        <URL value="@afficherreclamation.css" />
+    </stylesheets>
+     
+      <children>
+          
+                           <AnchorPane prefHeight="92.0" prefWidth="985.0" style="-fx-background-color: #100c04;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                               
+                         <HBox alignment="CENTER" layoutX="9.0" spacing="8.0" style="-fx-background-color: #100c04;" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="1.0">
+               <children>
+                  <VBox alignment="CENTER_LEFT" fillWidth="false" prefHeight="90.0" prefWidth="200.0" style="-fx-background-color: #100c04;">
+                     <children>
+                        <Label prefHeight="51.0" prefWidth="500.0" text="La liste des réclamations" textAlignment="RIGHT" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           
+                        </Label>
+                     </children>
+                  </VBox>
+                  
+                  
+                
+               </children>
+            </HBox>
+                        
+                        </AnchorPane>
+                        
+                             
+                        </children>
+                
+            
+        
+       
+            
+   <children>
+      <TableView fx:id="table" layoutX="33.0" layoutY="176.0" onMouseClicked="#Traiter2" prefHeight="518.0" prefWidth="946.0">
+         <columns>
+            <TableColumn fx:id="coldaterec" prefWidth="146.0" text="Date" />
+            <TableColumn fx:id="colcontenurec" minWidth="0.0" prefWidth="156.0" text="Contenu" />
+            <TableColumn fx:id="coltyperec" prefWidth="234.0" text="Type réclamation" />
+            <TableColumn fx:id="Etat" prefWidth="187.0" text="Etat" />
+            <TableColumn fx:id="archiver" prefWidth="221.0" text="Archivé" />
+         </columns>
+      
+      </TableView>
+      
+                            
+      <Button fx:id="Traiter" layoutX="58.0" layoutY="117.0" mnemonicParsing="false" onAction="#Traiter" prefHeight="27.0" prefWidth="146.0" style="-fx-background-color: #2F323A;" text="Traiter la réclamation " textFill="WHITE" />
+        <Button fx:id="Retour" layoutX="732.0" layoutY="116.0" mnemonicParsing="false" onAction="#Retour" prefHeight="27.0" prefWidth="109.0" style="-fx-background-color: #2F323A;" text="Retour" textFill="WHITE" />
+      <Button fx:id="Archiver" layoutX="434.0" layoutY="117.0" mnemonicParsing="false" onAction="#Archiver" style="-fx-background-color: #2F323A;" text="Archiver la réclamation" textFill="WHITE" />
+      <Button fx:id="Bloquer" layoutX="604.0" layoutY="117.0" mnemonicParsing="false" onAction="#Bloquer" style="-fx-background-color: #2F323A;" text="bloquer  membre" textFill="WHITE" />
+      <Button fx:id="Stat" layoutX="233.0" layoutY="117.0" mnemonicParsing="false" onAction="#Stat" style="-fx-background-color: #2F323A;" text="Les statistiques des réclamations" textFill="WHITE" />
+      <Button fx:id="afficher" layoutX="869.0" layoutY="117.0" mnemonicParsing="false" onAction="#afficher" style="-fx-background-color: #2F323A;" prefHeight="25.0" prefWidth="109.0" text="afficher archive" textFill="WHITE" />
+      
+
+   </children>
+</AnchorPane>
